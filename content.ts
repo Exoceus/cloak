@@ -64,6 +64,7 @@ function updateColors() {
 function updateBackground(root) {
     let { r, g, b } = colors.backgroundColor;
     const backgroundColor = `rgb(${r},${g},${b})`
+    const backgroundColorVariant = `rgba(${r},${g},${b},${0.8})`
     root.style.setProperty('--surface', backgroundColor);
     root.style.setProperty('--textfield-surface', backgroundColor);
     root.style.setProperty('--background', backgroundColor);
@@ -75,8 +76,12 @@ function updateText(root) {
     let { r, g, b, a } = colors.textColor;
     const textPrimaryColor = `rgb(${r},${g},${b})`
     const textFadedColor = `rgba(${r},${g},${b},${a})`
+
     root.style.setProperty('--on-surface-variant-agm', textFadedColor);
     root.style.setProperty('--on-surface-variant', textFadedColor);
+
+    root.style.setProperty('--mdc-theme-on-surface', textPrimaryColor);
+    root.style.setProperty('--textfield-primary', textPrimaryColor);
     root.style.setProperty('--on-surface', textPrimaryColor);
     try {
         document.querySelector("#ow77 > div > div.aCsJod.oJeWuf > div > div.Xb9hP > input").style.color = "white";
@@ -105,6 +110,8 @@ function updateAccent(root) {
     root.style.setProperty('--primary', accentColor);
     root.style.setProperty('--fab', accentColor);
     root.style.setProperty('--now', accentColor);
+    root.style.setProperty('--secondary', accentColor);
+    root.style.setProperty('--gm-fillbutton-container-color', accentColor);
 
     // variant
     root.style.setProperty('--fab-hover', varaitnColor);
@@ -116,7 +123,7 @@ function updateAccent(root) {
 function updateLogo() {
     // console.log("ehllo")
     let logoElems = document.querySelectorAll('[aria-label="Calendar"]')
-    for (let i = 0; i < logoElems.length; i++) {
+    for (let i = 0; i < 2; i++) {
         logoElems[i].innerHTML = "<img src='https://i.ibb.co/DM99RZN/cloak-logo.png' style='height:32px;'>";
     }
 }
@@ -150,11 +157,11 @@ function updateGreys() {
         let cssData = []
         for (var i = 0; i < cssObj.length; i++) {
             if (cssObj[i] === 'color') {
-                if (cssObj.getPropertyValue(cssObj[i]) === "rgb(95, 99, 104)" || cssObj.getPropertyValue(cssObj[i]) === "rgb(60, 64, 67)" || cssObj.getPropertyValue(cssObj[i]) === "#3c4043") {
+                if (cssObj.getPropertyValue(cssObj[i]) === "rgb(95, 99, 104)" || cssObj.getPropertyValue(cssObj[i]) === "rgb(60, 64, 67)" || cssObj.getPropertyValue(cssObj[i]) === "rgb(128, 134, 139)" || cssObj.getPropertyValue(cssObj[i]) === "#3c4043" || cssObj.getPropertyValue(cssObj[i]) === "#222") {
                     elem.style.color = "var(--on-surface)";
                 }
-
             }
+
             // cssData.push(cssObj[i] + ':' + cssObj.getPropertyValue(cssObj[i]));
         }
         // console.log(cssData)
@@ -195,3 +202,12 @@ var interval = setInterval(function () {
 
 // setInterval(updateGreys, 1000)
 setTimeout(addListeners, 2000)
+
+console.warn("asd?")
+window.addEventListener('popstate', function () {
+    console.warn('location changed!');
+});
+
+setInterval(() => {
+    console.log(document.URL)
+}, 1000)
