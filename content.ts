@@ -69,7 +69,7 @@ function updateBackground(root) {
     root.style.setProperty('--textfield-surface', backgroundColor);
     root.style.setProperty('--background', backgroundColor);
     root.style.setProperty('--mdc-theme-surface', backgroundColor);
-    document.querySelector("#gb").style.backgroundColor = backgroundColor
+    document.querySelector("#gb").style.backgroundColor = 'var(--surface)'
 }
 
 function updateText(root) {
@@ -178,6 +178,13 @@ chrome.storage.local.get(null, (res) => {
     setTimeout(updateGreys, 1000)
 })
 
+function hideEventNames() {
+    console.log('into ehre')
+    document.querySelectorAll('span.ayClmf').forEach(elem => {
+        elem.style.color = 'transparent';
+    })
+}
+
 function addListeners() {
     let logoElems = document.querySelectorAll('[aria-label="Settings menu"]')
     for (let i = 0; i < logoElems.length; i++) {
@@ -210,4 +217,5 @@ window.addEventListener('popstate', function () {
 
 setInterval(() => {
     console.log(document.URL)
+    // hideEventNames()
 }, 1000)
