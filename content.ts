@@ -19,6 +19,7 @@ let popupOpen = false;
 
 console.log("HELLO")
 
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (sender.id === extension_id) {
         let { name, body } = message;
@@ -51,9 +52,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 function updateColors() {
     var root = document.querySelector(':root');
+    console.log("OG", root)
     updateLogo()
-    updateCreateButton()
+    try {
+        updateCreateButton()
+    }
+    catch (e) {
 
+    }
     updateGreys()
     updateBackground(root)
     updateText(root)
@@ -144,10 +150,6 @@ function updateCreateButton() {
 
 
 function updateGreys() {
-    let { r, g, b, a } = colors.textColor;
-    const textPrimaryColor = `rgb(${r},${g},${b})`
-
-    console.log("ici")
     let allElems = document.querySelectorAll("*")
 
     allElems.forEach(elem => {
@@ -157,7 +159,8 @@ function updateGreys() {
         let cssData = []
         for (var i = 0; i < cssObj.length; i++) {
             if (cssObj[i] === 'color') {
-                if (cssObj.getPropertyValue(cssObj[i]) === "rgb(95, 99, 104)" || cssObj.getPropertyValue(cssObj[i]) === "rgb(60, 64, 67)" || cssObj.getPropertyValue(cssObj[i]) === "rgb(128, 134, 139)" || cssObj.getPropertyValue(cssObj[i]) === "#3c4043" || cssObj.getPropertyValue(cssObj[i]) === "#222") {
+                if (cssObj.getPropertyValue(cssObj[i]) === "rgb(95, 99, 104)" || cssObj.getPropertyValue(cssObj[i]) === "rgb(60, 64, 67)" || cssObj.getPropertyValue(cssObj[i]) === "rgb(128, 134, 139)" ||
+                    cssObj.getPropertyValue(cssObj[i]) === "rgb(32, 33, 36)" || cssObj.getPropertyValue(cssObj[i]) === "#3c4043" || cssObj.getPropertyValue(cssObj[i]) === "#222") {
                     elem.style.color = "var(--on-surface)";
                 }
             }
@@ -195,17 +198,6 @@ function addListeners() {
     }
 }
 
-var timesRun = 0;
-var interval = setInterval(function () {
-    timesRun += 1;
-    updateColors()
-    if (timesRun === 30) {
-        clearInterval(interval);
-    }
-    //do whatever here..
-}, 100);
-
-
 
 // setInterval(updateGreys, 1000)
 setTimeout(addListeners, 2000)
@@ -215,7 +207,27 @@ window.addEventListener('popstate', function () {
     console.warn('location changed!');
 });
 
+function clearStyles() {
+
+}
+
+
+
 setInterval(() => {
-    console.log(document.URL)
-    // hideEventNames()
-}, 1000)
+    // console.log(document.URL)
+    if (window.location.pathname.endsWith("settings")) {
+        clearStyles();
+    }
+    else {
+        var timesRun = 0;
+        var interval = setInterval(function () {
+            timesRun += 1;
+            updateColors()
+            if (timesRun === 30) {
+                clearInterval(interval);
+            }
+            //do whatever here..
+        }, 100);
+
+    }
+}, 10000)
