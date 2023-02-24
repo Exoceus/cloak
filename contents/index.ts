@@ -1,56 +1,67 @@
 import type { PlasmoCSConfig } from "plasmo"
 
-const extension_id = "bnapdmcedmmgnkfkmdgpbmdfbgnajjea"
-
 export const config: PlasmoCSConfig = {
     matches: ["https://calendar.google.com/*"],
     run_at: "document_start",
     all_frames: true
 }
 
-const colors = {
+export let colors = {
     backgroundColor: { r: 0, g: 0, b: 0, a: 0 },
     textColor: { r: 0, g: 0, b: 0, a: 0 },
     accentColor: { r: 0, g: 0, b: 0, a: 0 },
     lineColor: { r: 0, g: 0, b: 0, a: 0 }
 }
 
-let popupOpen = false;
 
 console.log("HELLO")
 
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (sender.id === extension_id) {
-        let { name, body } = message;
+function baseDarkMode() {
+    let htmlElem = document.querySelector('html')
+    for (let i = 0; i < document.styleSheets.length; i++) {
+        document.styleSheets[0].insertRule(':not(img){filter: invert(100%) hue-rotate(180deg) ;}', 0);
+    }
+}
 
-        if (name === "colorChange") {
-            let { color, type } = body;
-            let { r, g, b } = color;
-            console.log("COLOR", color)
+// setInterval(baseDarkMode, 1000)
+// function updateBase() {
+//     let nodes = document.body.querySelectorAll("*");
+//     nodes.forEach(node => {
+//         node.style.setProperty('background', "black", 'important');
+//         node.style.setProperty('color', "white", 'important');
+//     })
+// }
 
-            if (r || g || b) {
-                let newStorage = {}
-                newStorage[type] = color
+var observeDOM = (function () {
+    var MutationObserver = window.MutationObserver
 
+    return function (obj, callback) {
+        if (!obj || obj.nodeType !== 1) return;
 
-                chrome.storage.local.set(newStorage).then(() => {
-                    colors[type] = color;
-                })
+        if (MutationObserver) {
+            // define a new observer
+            var mutationObserver = new MutationObserver(callback)
 
-                updateColors()
-            }
-
+            // have the observer observe for changes in children
+            mutationObserver.observe(obj, { childList: true, subtree: true, attributes: true })
+            return mutationObserver
         }
     }
-})
+})()
 
-// console.log(r)
-// console.log(`The value of --blue is: '${getComputedStyle(r).getPropertyValue('--surface')}'`)
-// r.style.setProperty('--on-surface-variant-agm', 'rgba(100,100,100, 1)');
+// setTimeout(() => {
+//     console.log(document.body)
+//     // Observe a specific DOM element:
+//     console.log("into here?")
+//     let count = 0
+//     observeDOM(document.body, function (m) {
+//         console.warn("ici", count++)
+//     });
+// }, 100)
 
-
-function updateColors() {
+export function updateColors() {
+    // console.log()
     var root = document.querySelector(':root');
     console.log("OG", root)
     updateLogo()
@@ -70,12 +81,11 @@ function updateColors() {
 function updateBackground(root) {
     let { r, g, b } = colors.backgroundColor;
     const backgroundColor = `rgb(${r},${g},${b})`
-    const backgroundColorVariant = `rgba(${r},${g},${b},${0.8})`
     root.style.setProperty('--surface', backgroundColor);
     root.style.setProperty('--textfield-surface', backgroundColor);
     root.style.setProperty('--background', backgroundColor);
     root.style.setProperty('--mdc-theme-surface', backgroundColor);
-    document.querySelector("#gb").style.backgroundColor = 'var(--surface)'
+    document.querySelector<HTMLElement>("#gb").style.backgroundColor = 'var(--surface)'
 }
 
 function updateText(root) {
@@ -90,8 +100,8 @@ function updateText(root) {
     root.style.setProperty('--textfield-primary', textPrimaryColor);
     root.style.setProperty('--on-surface', textPrimaryColor);
     try {
-        document.querySelector("#ow77 > div > div.aCsJod.oJeWuf > div > div.Xb9hP > input").style.color = "white";
-        document.querySelector("#ow77 > div > div.aCsJod.oJeWuf > div > div.Xb9hP > input").placeholder.style.color = "white";
+        document.querySelector<HTMLElement>("#ow77 > div > div.aCsJod.oJeWuf > div > div.Xb9hP > input").style.color = "white";
+        // document.querySelector<HTMLInputElement>("#ow77 > div > div.aCsJod.oJeWuf > div > div.Xb9hP > input").placeholder.style.color = "white";
     }
     catch (e) {
 
@@ -104,15 +114,16 @@ function updateText(root) {
 }
 
 function updateLine(root) {
-    let { r, g, b, a } = colors.lineColor;
-    const lineColor = `rgba(${r},${g},${b},${a})`
+    let { r, g, b } = colors.lineColor;
+    const lineColor = `rgb(${r},${g},${b})`
+    root.style.setProperty('--line-color', lineColor);
     root.style.setProperty('--hairline', lineColor);
 }
 
 function updateAccent(root) {
     let { r, g, b, a } = colors.accentColor;
-    const accentColor = `rgb(${r},${g},${b},${0.9})`
-    const varaitnColor = `rgb(${r},${g},${b},${1})`
+    const accentColor = `rgb(${r},${g},${b})`
+    const varaitnColor = `rgb(${r},${g},${b})`
     root.style.setProperty('--primary', accentColor);
     root.style.setProperty('--fab', accentColor);
     root.style.setProperty('--now', accentColor);
@@ -130,22 +141,22 @@ function updateLogo() {
     // console.log("ehllo")
     let logoElems = document.querySelectorAll('[aria-label="Calendar"]')
     for (let i = 0; i < 2; i++) {
-        logoElems[i].innerHTML = "<img src='https://i.ibb.co/DM99RZN/cloak-logo.png' style='height:32px;'>";
+        logoElems[i].innerHTML = "<img src='https://i.ibb.co/VB2g1Qm/cloak-logo-2.png' style='height:32px;margin-left:8px'>";
     }
 }
 
 function updateCreateButton() {
-    let plusIcon = document.querySelector("div.Gw6Zhc > svg")
+    let plusIcon = document.querySelector<HTMLElement>("div.Gw6Zhc > svg")
     plusIcon.style.display = 'none'
     // console.log(plusIcon)
 
-    let createButton = document.querySelector("div.dwlvNd")
+    let createButton = document.querySelector<HTMLElement>("div.dwlvNd")
     // console.log(createButton)
     let buttonWrapper = document.querySelector("div.LXjtcc")
     buttonWrapper.appendChild(createButton)
     createButton.style.width = "100%"
-    document.querySelector("body > div.tEhMVd > div.pSp5K > div.KKOvEb > div > div.QQYuzf > div > div.LXjtcc > div > div").style.width = "90%"
-    document.querySelector("body > div.tEhMVd > div.pSp5K > div.KKOvEb > div > div.QQYuzf > div > div.LXjtcc > div > div > div").style.width = "90%"
+    document.querySelector<HTMLElement>("body > div.tEhMVd > div.pSp5K > div.KKOvEb > div > div.QQYuzf > div > div.LXjtcc > div > div").style.width = "90%"
+    document.querySelector<HTMLElement>("body > div.tEhMVd > div.pSp5K > div.KKOvEb > div > div.QQYuzf > div > div.LXjtcc > div > div > div").style.width = "90%"
 }
 
 
@@ -177,57 +188,24 @@ chrome.storage.local.get(null, (res) => {
     colors.textColor = res.textColor
     colors.accentColor = res.accentColor
     colors.lineColor = res.lineColor
-
-    setTimeout(updateGreys, 1000)
 })
 
-function hideEventNames() {
-    console.log('into ehre')
-    document.querySelectorAll('span.ayClmf').forEach(elem => {
-        elem.style.color = 'transparent';
-    })
-}
 
-function addListeners() {
-    let logoElems = document.querySelectorAll('[aria-label="Settings menu"]')
-    for (let i = 0; i < logoElems.length; i++) {
-        logoElems[i].addEventListener("click", () => {
-            console.warn("clicked")
-            setTimeout(updateGreys, 2)
-        })
-    }
-}
+// function addListeners() {
+//     let logoElems = document.querySelectorAll('[aria-label="Settings menu"]')
+//     for (let i = 0; i < logoElems.length; i++) {
+//         logoElems[i].addEventListener("click", () => {
+//             console.warn("clicked")
+//             setTimeout(updateGreys, 2)
+//         })
+//     }
+// }
 
 
 // setInterval(updateGreys, 1000)
-setTimeout(addListeners, 2000)
+setTimeout(updateColors, 1000)
 
 console.warn("asd?")
-window.addEventListener('popstate', function () {
+window.addEventListener('pushstate', function () {
     console.warn('location changed!');
 });
-
-function clearStyles() {
-
-}
-
-
-
-setInterval(() => {
-    // console.log(document.URL)
-    if (window.location.pathname.endsWith("settings")) {
-        clearStyles();
-    }
-    else {
-        var timesRun = 0;
-        var interval = setInterval(function () {
-            timesRun += 1;
-            updateColors()
-            if (timesRun === 30) {
-                clearInterval(interval);
-            }
-            //do whatever here..
-        }, 100);
-
-    }
-}, 10000)
