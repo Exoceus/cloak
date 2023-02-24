@@ -7,12 +7,12 @@ export const config: PlasmoCSConfig = {
     all_frames: true
 }
 
-
-
-const extension_id = "bnapdmcedmmgnkfkmdgpbmdfbgnajjea"
+// note: when peeps download, its gonna be diff
+// const extension_id = "bnapdmcedmmgnkfkmdgpbmdfbgnajjea"
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (sender.id === extension_id) {
+    // if (sender.id === extension_id) {
+    if (sender.id) {
         let { name, body } = message;
 
         if (name === "colorChange") {
