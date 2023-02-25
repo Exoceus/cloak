@@ -27,6 +27,16 @@
     "typescript": "4.9.4"
   },
   "manifest": {
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "~inject.css"
+        ],
+        "matches": [
+          "https://calendar.google.com/*"
+        ]
+      }
+    ],
     "host_permissions": [
       "https://*/*"
     ],

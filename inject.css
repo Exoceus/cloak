@@ -1,0 +1,83 @@
+body {
+    background: var(--surface) !important;
+    color: var(--on-surface) !important;
+}
+
+/* For Calendar Quick Options Menu */
+.z80M1.FwR7Pc {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
+
+/* For hovering over dates in top left mini month view */
+.W0m3G:hover .r4nke {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
+
+/* For hovering over dates in main view */
+.KSxb4d.RKLVef:hover,
+body.geSgge .KSxb4d.RKLVef:hover,
+.KSxb4d.N4XV7d.RKLVef:hover,
+body.geSgge .KSxb4d.N4XV7d.RKLVef:hover {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
+
+/* Help Button */
+.Ewn2Sd.kNRrie:hover,
+.Ewn2Sd.kNRrie {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
+
+/* Search Bar */
+.gb_Xe {
+    background: var(--surface) !important;
+    color: var(--on-surface) !important;
+}
+
+/* search bar search field */
+input.gb_if {
+    color: var(--on-surface) !important;
+}
+
+/* Shortcut menu search */
+.WmnPA:not(.VfPpkd-fmcmS-yrriRe-OWXEXe-OWB6Me) {
+    background-color: var(--surface);
+}
+
+/* Search Results */
+.gssb_a .gsfs .ASO_SUGGESTION_CELL {
+    color: var(--on-surface) !important;
+}
+
+.ASO_SUGGESTIONS_CONTAINER {
+    color: var(--on-surface) !important;
+}
+
+.ASO_SUGGESTION_HIGHLIGHTED {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
+
+/* yearly view hover date */
+.ebs3Ne:hover {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
+
+/* Settings side nav hover */
+.nBzcnc.Wm6kRe.huVZvb:hover,
+.GrxScd .SWigMc.Wm6kRe.huVZvb:focus,
+.nBzcnc.gk6SMd.huVZvb {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
+
+.cAYGed.KKjvXb .Ioup7e,
+.cAYGed.KKjvXb .BMQm1d {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
+
+.DaQ2rc.KKjvXb .Oxnkef,
+.cAYGed.KKjvXb .Ioup7e {
+    color: var(--primary) !important;
+}
+
+.OFaVze {
+    background-color: var(--surface) !important;
+}

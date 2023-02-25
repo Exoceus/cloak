@@ -12,8 +12,7 @@ let is_head_added = false;
 var document_observer = new MutationObserver(function (mutations) {
 
     if (document.head && is_head_added === false) {
-        // dark_mode_main.append_css_element();
-        // add css
+        injectCss();
         console.error("IN HERE")
         is_head_added = true;
     }
@@ -23,6 +22,7 @@ var document_observer = new MutationObserver(function (mutations) {
         // });
         // dark_mode_main.remove_link_element();
         document.body.style.setProperty('background', 'var(--surface)', 'important');
+        document.body.style.setProperty('color', 'var(--on-surface)', 'important');
         document_observer.disconnect();
     }
 });
@@ -52,6 +52,20 @@ function iterateNodes(nodes) {
     }
 }
 
+function injectCss() {
+    let link = document.createElement("link");
+    let href = chrome.runtime.getURL('inject.css');
+    link.setAttribute("type", "text/css");
+    link.setAttribute("id", "cloak-inject");
+    link.setAttribute("rel", "stylesheet");
+    link.setAttribute("href", href);
+    console.log(href)
+    if (document.head) {
+        console.warn("INJECTING")
+        document.head.appendChild(link)
+    }
+}
+
 function isValidNode(name: string) {
     if (!name) {
         return false;
@@ -73,15 +87,15 @@ function processNode(node) {
         try {
             return `#${rgba.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+\.{0,1}\d*))?\)$/).slice(1).map((n, i) => (i === 3 ? Math.round(parseFloat(n) * 255) : parseFloat(n)).toString(16).padStart(2, '0').replace('NaN', '')).join('')}`
         } catch (e) {
-            console.error(e)
-            console.log("bruh", `'${rgba}'`)
+            // console.error(e)
+            // console.log("bruh", `'${rgba}'`)
         }
     }
 
     let textColor = window.getComputedStyle(node).color
 
     if (rgba2hex(textColor) != "#00000000") {
-        console.log(rgba2hex(textColor))
+        // console.log(rgba2hex(textColor))
     }
 
     if (textColor === "rgb(95, 99, 104)" || textColor === "rgb(60, 64, 67)" || textColor === "rgb(128, 134, 139)" ||
@@ -94,7 +108,7 @@ function processNode(node) {
         return;
     }
     if (bgColor.startsWith('#')) {
-        console.log("DAMN", bgColor)
+        // console.log("DAMN", bgColor)
     }
     let targets = ["XvhY1d", "z80M1 xl07Ob-ibnC6b FwR7Pc", "z80M1 QJXRJc"]
     // // console.log(`'${node.className}'`, currentBg)
@@ -103,7 +117,7 @@ function processNode(node) {
     // }
 
     if (targets.includes(node.className) || rgba2hex(bgColor) == "#ffffff" || rgba2hex(bgColor) == "#eeeeee" || rgba2hex(bgColor) == "#e8eaed") {
-        console.warn(bgColor)
+        // console.warn(bgColor)
         node.style.setProperty('background', 'var(--surface)', 'important')
     }
 }

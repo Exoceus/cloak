@@ -82,6 +82,7 @@ function updateBackground(root) {
     let { r, g, b } = colors.backgroundColor;
     const backgroundColor = `rgb(${r},${g},${b})`
     root.style.setProperty('--surface', backgroundColor);
+    root.style.setProperty('--surface-raw', `${r}, ${g}, ${b}`);
     root.style.setProperty('--textfield-surface', backgroundColor);
     root.style.setProperty('--background', backgroundColor);
     root.style.setProperty('--mdc-theme-surface', backgroundColor);
@@ -96,9 +97,13 @@ function updateText(root) {
     root.style.setProperty('--on-surface-variant-agm', textFadedColor);
     root.style.setProperty('--on-surface-variant', textFadedColor);
 
+    root.style.setProperty('--on-surface-raw', `${r}, ${g}, ${b}`);
+
     root.style.setProperty('--mdc-theme-on-surface', textPrimaryColor);
     root.style.setProperty('--textfield-primary', textPrimaryColor);
     root.style.setProperty('--on-surface', textPrimaryColor);
+
+    root.style.setProperty('--chip-hover', `rgba(${r},${g},${b},${0.1})`);
     try {
         document.querySelector<HTMLElement>("#ow77 > div > div.aCsJod.oJeWuf > div > div.Xb9hP > input").style.color = "white";
         // document.querySelector<HTMLInputElement>("#ow77 > div > div.aCsJod.oJeWuf > div > div.Xb9hP > input").placeholder.style.color = "white";
