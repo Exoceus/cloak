@@ -1,5 +1,6 @@
 
 import type { PlasmoCSConfig } from "plasmo"
+import { init } from "~contents";
 
 export const config: PlasmoCSConfig = {
     matches: ["https://calendar.google.com/*"],
@@ -21,6 +22,8 @@ var document_observer = new MutationObserver(function (mutations) {
         //     dnm_set_brg(data.document_brightness);
         // });
         // dark_mode_main.remove_link_element();
+        console.warn("UPDATED")
+        init();
         document.body.style.setProperty('background', 'var(--surface)', 'important');
         document.body.style.setProperty('color', 'var(--on-surface)', 'important');
         document_observer.disconnect();
@@ -95,11 +98,11 @@ function processNode(node) {
     let textColor = window.getComputedStyle(node).color
 
     if (rgba2hex(textColor) != "#00000000") {
-        // console.log(rgba2hex(textColor))
+        console.log(rgba2hex(textColor))
     }
 
     if (textColor === "rgb(95, 99, 104)" || textColor === "rgb(60, 64, 67)" || textColor === "rgb(128, 134, 139)" ||
-        textColor === "rgb(32, 33, 36)" || textColor === "#3c4043" || textColor === "#222" || rgba2hex(textColor) == "#222222") {
+        textColor === "rgb(32, 33, 36)" || textColor === "#3c4043" || textColor === "#222" || rgba2hex(textColor) == "#222222" || rgba2hex(textColor) == "#3c4043") {
         node.style.setProperty('color', 'var(--on-surface)', 'important')
     }
 
@@ -111,14 +114,14 @@ function processNode(node) {
         // console.log("DAMN", bgColor)
     }
     let targets = ["XvhY1d", "z80M1 xl07Ob-ibnC6b FwR7Pc", "z80M1 QJXRJc"]
-    // // console.log(`'${node.className}'`, currentBg)
-    // if (currentBg === "rgb(0, 0, 0)") {
-    //     node.style.setProperty('background', 'var(--surface)', 'important')
-    // }
+
+    const exclusions = ["jPtXgd"] // for profile images that are just a div with background-image property
 
     if (targets.includes(node.className) || rgba2hex(bgColor) == "#ffffff" || rgba2hex(bgColor) == "#eeeeee" || rgba2hex(bgColor) == "#e8eaed") {
         // console.warn(bgColor)
-        node.style.setProperty('background', 'var(--surface)', 'important')
+        if (!exclusions.includes(node.className)) {
+            node.style.setProperty('background', 'var(--surface)', 'important')
+        }
     }
 }
 

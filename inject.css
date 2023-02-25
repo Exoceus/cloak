@@ -78,6 +78,110 @@ input.gb_if {
     color: var(--primary) !important;
 }
 
+/* Search for people */
 .OFaVze {
     background-color: var(--surface) !important;
+}
+
+/* Line border on settings navigation */
+.DaQ2rc.KKjvXb .Oxnkef {
+    border-color: var(--primary) !important;
+}
+
+/* Calendar "Today" button */
+.VfPpkd-LgbsSe .VfPpkd-vQzf8d {
+    color: var(--on-surface) !important;
+}
+
+/* Lines under text fields search when active */
+.OabDMe {
+    background-color: var(--primary) !important;
+}
+
+/* Borders under headings for create even page */
+.rvBHac .VfPpkd-AznF2e-wEcVzc-OWXEXe-NowJzb {
+    border-color: var(--primary) !important;
+}
+
+/* Event Details */
+.WbUJNb.VfPpkd-AznF2e-OWXEXe-auswjd .VfPpkd-jY41G-V67aGc {
+    color: var(--primary) !important;
+}
+
+/* Formating Icons for Description */
+.qmMNRc {
+    color: var(--on-surface) !important;
+}
+
+/* Icon Selected */
+.Erb9le:not(.RDPZE) .qmMNRc.y7OZL {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
+
+/* Icon hover in popup */
+.T4SBCf .r7kft .CIy9F:not(.Hcv3ye) .Aworge:hover {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
+
+/* Edit Link Popup Text input */
+.xSJpA.IYewr {
+    background-color: var(--surface) !important;
+}
+
+/* Bottom Border line for some other input */
+.iMnlEf {
+    background-color: var(--primary) !important;
+}
+
+/* Three dots for opening calendar options */
+.N3p0af.TJ2tCc.u3bW4e,
+.N3p0af.TJ2tCc:hover {
+    color: var(--on-surface) !important;
+}
+
+/* Picking a Calendar (Hover effect) */
+.ncFHed .MocG8c.KKjvXb {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
+
+/* Hovering over locations */
+.oKubKe[aria-selected=true] {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
+
+/* Hovering over time/duration of event */
+.VKy0Ic[aria-selected=true] {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
+
+/* unhighlighted text fields */
+.nZC2Ae,
+.iSSROb {
+    color: rgba(var(--on-surface-raw), 0.75) !important;
+}
+
+/* Bottom border line for description input */
+.PfAg4 {
+    background-color: var(--primary) !important;
+}
+
+/* Date Time Input Background on Focus */
+.u3bW4e {
+    background-color: transparent !important;
+}
+
+/* Discard Button text */
+.l3F1ye,
+.l3F1ye .TpQm9d {
+    color: var(--primary) !important;
+}
+
+/* Timezone selector */
+.hqBSCb:not(.VfPpkd-O1htCb-OWXEXe-OWB6Me) .VfPpkd-TkwUic {
+    background-color: transparent !important;
+}
+
+/* Selected Timezone Option */
+.s8kOBc .VfPpkd-rymPhb-ibnC6b.VfPpkd-rymPhb-ibnC6b-OWXEXe-gk6SMd {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }

@@ -16,62 +16,25 @@ export let colors = {
 
 console.log("HELLO")
 
-
-function baseDarkMode() {
-    let htmlElem = document.querySelector('html')
-    for (let i = 0; i < document.styleSheets.length; i++) {
-        document.styleSheets[0].insertRule(':not(img){filter: invert(100%) hue-rotate(180deg) ;}', 0);
-    }
-}
-
-// setInterval(baseDarkMode, 1000)
-// function updateBase() {
-//     let nodes = document.body.querySelectorAll("*");
-//     nodes.forEach(node => {
-//         node.style.setProperty('background', "black", 'important');
-//         node.style.setProperty('color', "white", 'important');
-//     })
-// }
-
-var observeDOM = (function () {
-    var MutationObserver = window.MutationObserver
-
-    return function (obj, callback) {
-        if (!obj || obj.nodeType !== 1) return;
-
-        if (MutationObserver) {
-            // define a new observer
-            var mutationObserver = new MutationObserver(callback)
-
-            // have the observer observe for changes in children
-            mutationObserver.observe(obj, { childList: true, subtree: true, attributes: true })
-            return mutationObserver
-        }
-    }
-})()
-
-// setTimeout(() => {
-//     console.log(document.body)
-//     // Observe a specific DOM element:
-//     console.log("into here?")
-//     let count = 0
-//     observeDOM(document.body, function (m) {
-//         console.warn("ici", count++)
-//     });
-// }, 100)
-
-export function updateColors() {
-    // console.log()
+export function init() {
     var root = document.querySelector(':root');
     console.log("OG", root)
     updateLogo()
-    try {
-        updateCreateButton()
-    }
-    catch (e) {
+    // try {
+    //     updateCreateButton()
+    // }
+    // catch (e) {
 
-    }
+    // }
     updateGreys()
+    updateBackground(root)
+    updateText(root)
+    updateLine(root)
+    updateAccent(root)
+}
+
+export function updateColors() {
+    var root = document.querySelector(':root');
     updateBackground(root)
     updateText(root)
     updateLine(root)
@@ -102,6 +65,7 @@ function updateText(root) {
     root.style.setProperty('--mdc-theme-on-surface', textPrimaryColor);
     root.style.setProperty('--textfield-primary', textPrimaryColor);
     root.style.setProperty('--on-surface', textPrimaryColor);
+    root.style.setProperty('--mdc-theme-text-primary-on-background', textPrimaryColor);
 
     root.style.setProperty('--chip-hover', `rgba(${r},${g},${b},${0.1})`);
     try {
@@ -166,51 +130,22 @@ function updateCreateButton() {
 
 
 function updateGreys() {
-    let allElems = document.querySelectorAll("*")
+    console.warn("NO greys")
+    // let allElems = document.querySelectorAll("*")
 
-    allElems.forEach(elem => {
-        // var selectColor = 'rgb(0,0,0)';
-        // return (allElems.css('color') == selectColor);\
-        let cssObj = getComputedStyle(elem)
-        let cssData = []
-        for (var i = 0; i < cssObj.length; i++) {
-            if (cssObj[i] === 'color') {
-                if (cssObj.getPropertyValue(cssObj[i]) === "rgb(95, 99, 104)" || cssObj.getPropertyValue(cssObj[i]) === "rgb(60, 64, 67)" || cssObj.getPropertyValue(cssObj[i]) === "rgb(128, 134, 139)" ||
-                    cssObj.getPropertyValue(cssObj[i]) === "rgb(32, 33, 36)" || cssObj.getPropertyValue(cssObj[i]) === "#3c4043" || cssObj.getPropertyValue(cssObj[i]) === "#222") {
-                    elem.style.color = "var(--on-surface)";
-                }
-            }
-
-            // cssData.push(cssObj[i] + ':' + cssObj.getPropertyValue(cssObj[i]));
-        }
-        // console.log(cssData)
-    })
+    // allElems.forEach(elem => {
+    //     // var selectColor = 'rgb(0,0,0)';
+    //     // return (allElems.css('color') == selectColor);\
+    //     let cssObj = getComputedStyle(elem)
+    //     let cssData = []
+    //     for (var i = 0; i < cssObj.length; i++) {
+    //         if (cssObj[i] === 'color') {
+    //             if (cssObj.getPropertyValue(cssObj[i]) === "rgb(95, 99, 104)" || cssObj.getPropertyValue(cssObj[i]) === "rgb(60, 64, 67)" || cssObj.getPropertyValue(cssObj[i]) === "rgb(128, 134, 139)" ||
+    //                 cssObj.getPropertyValue(cssObj[i]) === "rgb(32, 33, 36)" || cssObj.getPropertyValue(cssObj[i]) === "#3c4043" || cssObj.getPropertyValue(cssObj[i]) === "#222") {
+    //                 elem.style.color = "var(--on-surface)";
+    //             }
+    //         }
+    //     }
+    // })
 }
 
-chrome.storage.local.get(null, (res) => {
-    // console.log("PRIM", colors)
-    colors.backgroundColor = res.backgroundColor
-    colors.textColor = res.textColor
-    colors.accentColor = res.accentColor
-    colors.lineColor = res.lineColor
-})
-
-
-// function addListeners() {
-//     let logoElems = document.querySelectorAll('[aria-label="Settings menu"]')
-//     for (let i = 0; i < logoElems.length; i++) {
-//         logoElems[i].addEventListener("click", () => {
-//             console.warn("clicked")
-//             setTimeout(updateGreys, 2)
-//         })
-//     }
-// }
-
-
-// setInterval(updateGreys, 1000)
-setTimeout(updateColors, 1000)
-
-console.warn("asd?")
-window.addEventListener('pushstate', function () {
-    console.warn('location changed!');
-});
