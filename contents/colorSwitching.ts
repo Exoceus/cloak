@@ -1,3 +1,4 @@
+import { rejects } from "assert"
 import type { PlasmoCSConfig } from "plasmo"
 import { colors, updateCssVars } from "~contents"
 
@@ -10,12 +11,6 @@ export const config: PlasmoCSConfig = {
 // note: when peeps download, its gonna be diff
 // const extension_id = "bnapdmcedmmgnkfkmdgpbmdfbgnajjea"
 
-chrome.storage.local.get(null, (res) => {
-    colors.backgroundColor = res.backgroundColor
-    colors.textColor = res.textColor
-    colors.accentColor = res.accentColor
-    colors.lineColor = res.lineColor
-})
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     // if (sender.id === extension_id) {

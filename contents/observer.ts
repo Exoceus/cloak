@@ -1,6 +1,6 @@
 
 import type { PlasmoCSConfig } from "plasmo"
-import { initialize } from "~contents";
+import { colors, initialize } from "~contents";
 
 export const config: PlasmoCSConfig = {
     matches: ["https://calendar.google.com/*"],
@@ -110,6 +110,13 @@ function processNode(node) {
         }
     }
 }
+
+chrome.storage.local.get(null, (res) => {
+    colors.backgroundColor = res.backgroundColor
+    colors.textColor = res.textColor
+    colors.accentColor = res.accentColor
+    colors.lineColor = res.lineColor
+})
 
 document_body_observer.observe(document, {
     childList: true,
