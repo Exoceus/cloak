@@ -39,13 +39,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
         if (name === "themeChange") {
             let { theme } = body;
-
-            if (theme === "custom") {
-                chrome.storage.local.set(theme).then(() => {
-                    colors[type] = color;
-                    updateCssVars()
-                })
-            }
+            chrome.storage.local.set({ theme })
         }
     }
 })

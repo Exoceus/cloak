@@ -1,0 +1,92 @@
+html {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+body {
+    margin: 0;
+    background-color: black;
+    color: white;
+    max-height: 400px;
+    overflow-y: scroll;
+    min-width: 310px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.header-logo {
+    max-width: 80%;
+    margin: 0 auto 1rem auto;
+}
+
+.theme-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.theme-wrapper>button {
+    background-color: transparent;
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 1px solid white;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.theme-wrapper>button:hover {
+    background-color: white;
+    color: black;
+}
+
+button.selected-theme {
+    background-color: white;
+    color: black;
+}
+
+footer {
+    text-align: center;
+    margin: 1rem 0 0 0;
+    font-size: 1rem;
+}
+
+.picker-wrapper {
+    border: 1px solid white;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+}
+
+h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+}
+
+.picker-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sketch-picker {
+    margin-top: 0.75rem;
+    background: rgba(255, 255, 255, 0.5) !important;
+}
+
+a {
+    color: turquoise;
+}

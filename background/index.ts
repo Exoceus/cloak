@@ -10,7 +10,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
             chrome.storage.local.set({ textColor: { r: 255, g: 255, b: 255, a: 0.7 } })
         }
         if (!accentColor) {
-            chrome.storage.local.set({ accentColor: { r: 66, g: 133, b: 244, a: 1 } })
+            chrome.storage.local.set({ accentColor: { r: 85, g: 153, b: 239, a: 1 } })
         }
         if (!lineColor) {
             chrome.storage.local.set({ lineColor: { r: 48, g: 48, b: 53, a: 1 } })
