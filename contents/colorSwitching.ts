@@ -1,5 +1,5 @@
 import type { PlasmoCSConfig } from "plasmo"
-import { colors, updateColors } from "~contents"
+import { colors, updateCssVars } from "~contents"
 
 export const config: PlasmoCSConfig = {
     matches: ["https://calendar.google.com/*"],
@@ -31,10 +31,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 let newStorage = {}
                 newStorage[type] = color
 
-
                 chrome.storage.local.set(newStorage).then(() => {
                     colors[type] = color;
-                    updateColors()
+                    updateCssVars()
                 })
             }
 

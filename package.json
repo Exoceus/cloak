@@ -1,7 +1,7 @@
 {
   "name": "cloak",
   "displayName": "Cloak",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Dark mode for Google Calendar",
   "author": "jatinm",
   "packageManager": "pnpm@7.18.2",
@@ -30,7 +30,7 @@
     "web_accessible_resources": [
       {
         "resources": [
-          "~inject.css"
+          "~css/inject.css"
         ],
         "matches": [
           "https://calendar.google.com/*"

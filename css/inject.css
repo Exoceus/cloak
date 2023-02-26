@@ -185,3 +185,18 @@ input.gb_if {
 .s8kOBc .VfPpkd-rymPhb-ibnC6b.VfPpkd-rymPhb-ibnC6b-OWXEXe-gk6SMd {
     background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
+
+/* Page Headers */
+.NkK3Fc span[role=heading] {
+    color: var(--on-surface) !important;
+}
+
+/* Create button arrow */
+.b0mxw {
+    color: var(--on-surface) !important;
+}
+
+/* Top Bar arrows */
+.JJyfjc {
+    color: var(--on-surface) !important;
+}

@@ -1,6 +1,6 @@
 
 import type { PlasmoCSConfig } from "plasmo"
-import { init } from "~contents";
+import { initialize } from "~contents";
 
 export const config: PlasmoCSConfig = {
     matches: ["https://calendar.google.com/*"],
@@ -14,16 +14,10 @@ var document_observer = new MutationObserver(function (mutations) {
 
     if (document.head && is_head_added === false) {
         injectCss();
-        console.error("IN HERE")
         is_head_added = true;
     }
     if (document.body) {
-        // chrome.storage.local.get({ 'document_brightness': 55 }, function (data) {
-        //     dnm_set_brg(data.document_brightness);
-        // });
-        // dark_mode_main.remove_link_element();
-        console.warn("UPDATED")
-        init();
+        initialize();
         document.body.style.setProperty('background', 'var(--surface)', 'important');
         document.body.style.setProperty('color', 'var(--on-surface)', 'important');
         document_observer.disconnect();
@@ -57,14 +51,13 @@ function iterateNodes(nodes) {
 
 function injectCss() {
     let link = document.createElement("link");
-    let href = chrome.runtime.getURL('inject.css');
+    let href = chrome.runtime.getURL('css/inject.css');
     link.setAttribute("type", "text/css");
     link.setAttribute("id", "cloak-inject");
     link.setAttribute("rel", "stylesheet");
     link.setAttribute("href", href);
-    console.log(href)
     if (document.head) {
-        console.warn("INJECTING")
+        console.log(href)
         document.head.appendChild(link)
     }
 }
@@ -97,10 +90,6 @@ function processNode(node) {
 
     let textColor = window.getComputedStyle(node).color
 
-    if (rgba2hex(textColor) != "#00000000") {
-        console.log(rgba2hex(textColor))
-    }
-
     if (textColor === "rgb(95, 99, 104)" || textColor === "rgb(60, 64, 67)" || textColor === "rgb(128, 134, 139)" ||
         textColor === "rgb(32, 33, 36)" || textColor === "#3c4043" || textColor === "#222" || rgba2hex(textColor) == "#222222" || rgba2hex(textColor) == "#3c4043") {
         node.style.setProperty('color', 'var(--on-surface)', 'important')
@@ -109,9 +98,6 @@ function processNode(node) {
     let bgColor = window.getComputedStyle(node).backgroundColor
     if (!bgColor) {
         return;
-    }
-    if (bgColor.startsWith('#')) {
-        // console.log("DAMN", bgColor)
     }
     let targets = ["XvhY1d", "z80M1 xl07Ob-ibnC6b FwR7Pc", "z80M1 QJXRJc"]
 
