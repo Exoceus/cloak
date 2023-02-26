@@ -200,3 +200,14 @@ input.gb_if {
 .JJyfjc {
     color: var(--on-surface) !important;
 }
+
+/* settings down arrow */
+.e2CuFe.eU809d {
+    border-color: var(--on-surface) transparent;
+}
+
+/* Settings checkboxes */
+.HLAc8>div>div>.VfPpkd-muHVFf-bMcfAe:enabled:checked~.VfPpkd-YQoJzd {
+    border-color: var(--primary) !important;
+    background-color: var(--primary) !important;
+}

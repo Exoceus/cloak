@@ -53,9 +53,11 @@ function updateText(root) {
     root.style.setProperty('--textfield-primary', textPrimaryColor);
     root.style.setProperty('--on-surface', textPrimaryColor);
     root.style.setProperty('--mdc-theme-text-primary-on-background', textPrimaryColor);
+    root.style.setProperty('--mdc-checkbox-unselected-hover-icon-color', textPrimaryColor);
 
     root.style.setProperty('--on-surface-variant-agm', textFadedColor);
     root.style.setProperty('--on-surface-variant', textFadedColor);
+    root.style.setProperty('--mdc-checkbox-unselected-icon-color', textFadedColor);
 
     root.style.setProperty('--chip-hover', `rgba(${r},${g},${b},${0.1})`);
 }
@@ -76,11 +78,13 @@ function updateAccent(root) {
     root.style.setProperty('--now', accentColor);
     root.style.setProperty('--secondary', accentColor);
     root.style.setProperty('--gm-fillbutton-container-color', accentColor);
+    root.style.setProperty('--gm-hairlinebutton-ink-color', accentColor);
 
     root.style.setProperty('--fab-hover', accentColor);
     root.style.setProperty('--primary-variant', accentColor);
     root.style.setProperty('--on-secondary', accentColor);
     root.style.setProperty('--on-secondary-variant', accentColor);
+
 }
 
 function updateLogo() {

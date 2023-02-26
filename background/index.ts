@@ -2,7 +2,7 @@ console.log("UP")
 
 // set defaults
 chrome.runtime.onInstalled.addListener(async (details) => {
-    chrome.storage.local.get(null, ({ backgroundColor, textColor, accentColor, lineColor }) => {
+    chrome.storage.local.get(null, ({ backgroundColor, textColor, accentColor, lineColor, theme }) => {
         if (!backgroundColor) {
             chrome.storage.local.set({ backgroundColor: { r: 11, g: 9, b: 17, a: 1 } })
         }
@@ -14,6 +14,9 @@ chrome.runtime.onInstalled.addListener(async (details) => {
         }
         if (!lineColor) {
             chrome.storage.local.set({ lineColor: { r: 48, g: 48, b: 53, a: 1 } })
+        }
+        if (!theme) {
+            chrome.storage.local.set({ theme: "dark" })
         }
     })
 });

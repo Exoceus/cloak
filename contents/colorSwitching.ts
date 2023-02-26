@@ -25,7 +25,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         if (name === "colorChange") {
             let { color, type } = body;
             let { r, g, b } = color;
-            console.log("COLOR", color)
 
             if (r || g || b) {
                 let newStorage = {}
@@ -36,7 +35,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     updateCssVars()
                 })
             }
+        }
 
+        if (name === "themeChange") {
+            let { theme } = body;
+
+            if (theme === "custom") {
+                chrome.storage.local.set(theme).then(() => {
+                    colors[type] = color;
+                    updateCssVars()
+                })
+            }
         }
     }
 })
