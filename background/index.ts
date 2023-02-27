@@ -18,10 +18,11 @@ chrome.runtime.onInstalled.addListener(async (details) => {
         if (!theme) {
             chrome.storage.local.set({ theme: "dark" })
         }
-
-        chrome.tabs.create({
-            url: "https://calendar.google.com/",
-            selected: true,
-        });
+        if (!backgroundColor || !textColor || !accentColor || !lineColor || !theme) {
+            chrome.tabs.create({
+                url: "https://calendar.google.com/",
+                selected: true,
+            });
+        }
     })
 });

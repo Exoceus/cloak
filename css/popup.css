@@ -139,3 +139,24 @@ button {
 h1 {
     font-weight: 400;
 }
+
+.calendar-warning {
+    display: grid;
+    flex-wrap: wrap;
+    background: rgba(237, 215, 14, 0.2);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    grid-template-columns: auto 1fr;
+    justify-content: center;
+    column-gap: 0.5rem;
+    margin-top: 0.5rem;
+    color: rgb(237, 215, 14);
+    align-items: center;
+    line-height: 150%;
+}
+
+.calendar-warning>div>span {
+    font-weight: 800;
+    text-decoration: underline;
+    cursor: pointer;
+}

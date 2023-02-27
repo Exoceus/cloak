@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { SketchPicker } from "react-color";
 import { sendToContentScript } from "@plasmohq/messaging";
-import { ChevronLeft, ChevronDown } from "react-feather"
+import { ChevronLeft, ChevronDown, AlertCircle } from "react-feather"
 import "~css/popup.css"
 
 const themes = ["dark", "ocean_wave", "rose_gold", "custom"]
@@ -14,6 +14,7 @@ function IndexPopup() {
   const [accColor, setAccentColor] = useState({ r: null, g: null, b: null, a: null });
   const [expandedItems, setExpandedItems] = useState([])
   const [currentTheme, setTheme] = useState(null)
+  const [isCalendar, setCalendar] = useState(false)
 
   const fetchStorage = () => {
     return new Promise<void>((resolve, reject) => {
@@ -30,7 +31,20 @@ function IndexPopup() {
 
   useEffect(() => {
     fetchStorage().then(() => setLoading(false))
-    console.warn(window.location)
+    // sendToContentScript({ name: "fetchUrl", }).then(res => {
+    //   console.log("RES", res)
+    // })
+    let queryOptions = { active: true, lastFocusedWindow: true };
+    // `tab` will either be a `tabs.Tab` instance or `undefined`.
+    chrome.tabs.query(queryOptions).then(res => {
+      console.warn("RES", res)
+      if (res.length > 0) {
+        let tab = res[0]
+        if (tab.url.startsWith('https://calendar.google.com/calendar')) {
+          setCalendar(true)
+        }
+      }
+    })
   }, [])
 
   useEffect(() => {
@@ -194,6 +208,12 @@ function IndexPopup() {
     <main>
       <img src='https://i.ibb.co/VB2g1Qm/cloak-logo-2.png' className="header-logo" />
 
+
+      {!isCalendar && <div className="calendar-warning"><AlertCircle /> <div>Visit <span onClick={e => chrome.tabs.create({
+        url: "https://calendar.google.com/",
+        selected: true,
+      })}>Google Calendar</span> to see changes.</div>
+      </div>}
       <h1>Themes</h1>
       <div className="theme-wrapper">
         {
