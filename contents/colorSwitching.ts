@@ -1,9 +1,8 @@
-import { rejects } from "assert"
 import type { PlasmoCSConfig } from "plasmo"
 import { colors, updateCssVars } from "~contents"
 
 export const config: PlasmoCSConfig = {
-    matches: ["https://calendar.google.com/*"],
+    matches: ["<all_urls>"],
     run_at: "document_start",
     all_frames: true
 }

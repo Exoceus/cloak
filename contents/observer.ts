@@ -103,7 +103,7 @@ function processNode(node) {
 
     const exclusions = ["jPtXgd"] // for profile images that are just a div with background-image property
 
-    if (targets.includes(node.className) || rgba2hex(bgColor) == "#ffffff" || rgba2hex(bgColor) == "#eeeeee" || rgba2hex(bgColor) == "#e8eaed") {
+    if (targets.includes(node.className) || rgba2hex(bgColor) == "#ffffff" || rgba2hex(bgColor) == "#eeeeee" || rgba2hex(bgColor) == "#e8eaed" || rgba2hex(bgColor) == "#fcfdfe") {
         // console.warn(bgColor)
         if (!exclusions.includes(node.className)) {
             node.style.setProperty('background', 'var(--surface)', 'important')
