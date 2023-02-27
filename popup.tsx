@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { SketchPicker } from "react-color";
-import { sendToActiveContentScript } from "@plasmohq/messaging";
+import { sendToContentScript } from "@plasmohq/messaging";
 import { ChevronLeft, ChevronDown } from "react-feather"
 import "~css/popup.css"
 
@@ -30,11 +30,14 @@ function IndexPopup() {
 
   useEffect(() => {
     fetchStorage().then(() => setLoading(false))
+    console.warn(window.location)
   }, [])
 
   useEffect(() => {
     console.log(bgColor)
-    sendToActiveContentScript({
+
+
+    sendToContentScript({
       name: "colorChange",
       body: {
         type: "backgroundColor",
@@ -45,7 +48,7 @@ function IndexPopup() {
 
   useEffect(() => {
     console.log(linColor)
-    sendToActiveContentScript({
+    sendToContentScript({
       name: "colorChange",
       body: {
         type: "lineColor",
@@ -56,7 +59,7 @@ function IndexPopup() {
 
   useEffect(() => {
     console.log(accColor)
-    sendToActiveContentScript({
+    sendToContentScript({
       name: "colorChange",
       body: {
         type: "accentColor",
@@ -68,7 +71,7 @@ function IndexPopup() {
 
   useEffect(() => {
     console.log(txtColor)
-    sendToActiveContentScript({
+    sendToContentScript({
       name: "colorChange",
       body: {
         type: "textColor",
@@ -91,7 +94,7 @@ function IndexPopup() {
 
   const selectTheme = (theme: string) => {
     if (theme != currentTheme) {
-      sendToActiveContentScript({
+      sendToContentScript({
         name: "themeChange",
         body: {
           theme
@@ -194,7 +197,7 @@ function IndexPopup() {
       <h1>Themes</h1>
       <div className="theme-wrapper">
         {
-          themes.map(theme => <button onClick={() => selectTheme(theme)} className={currentTheme == theme ? "selected-theme" : ""}>{theme.replace(/_/g, ' ')}</button>)
+          themes.map(theme => <button onClick={() => selectTheme(theme)} className={(currentTheme == theme ? "selected-theme" : "") + " " + theme}>{theme.replace(/_/g, ' ')}</button>)
         }
       </div>
       <br />

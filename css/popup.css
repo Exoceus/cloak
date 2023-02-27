@@ -1,6 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,400;0,600;1,700&display=swap');
+
 html {
     max-height: 200px;
     overflow-y: scroll;
+}
+
+:root {
+    --dark_bg: white;
+    --dark_text: black;
+    --custom_bg: white;
+    --custom_text: black;
 }
 
 body {
@@ -10,6 +19,7 @@ body {
     max-height: 400px;
     overflow-y: scroll;
     min-width: 310px;
+    font-family: 'Chivo', sans-serif !important;
 }
 
 main {
@@ -43,6 +53,7 @@ body::-webkit-scrollbar {
     border: 1px solid white;
     cursor: pointer;
     text-transform: capitalize;
+    font-weight: lighter;
 }
 
 .theme-wrapper>button:hover {
@@ -50,10 +61,40 @@ body::-webkit-scrollbar {
     color: black;
 }
 
-button.selected-theme {
-    background-color: white;
-    color: black;
+button.ocean_wave:hover,
+.ocean_wave.selected-theme {
+    background-color: rgb(27, 52, 92);
+    color: rgb(68, 163, 179);
+    border-color: rgb(27, 52, 92);
 }
+
+button.rose_gold:hover,
+.rose_gold.selected-theme {
+    background-color: rgb(206, 133, 146);
+    color: rgb(152, 46, 77);
+    border-color: rgb(206, 133, 146);
+}
+
+button.dark:hover,
+.dark.selected-theme {
+    background-color: var(--dark_bg);
+    color: var(--dark_text);
+    border-color: var(--dark_bg);
+}
+
+
+button.custom:hover,
+.custom.selected-theme {
+    background-color: var(--custom_bg);
+    color: var(--custom_text);
+    border-color: var(--custom_bg);
+}
+
+
+button.selected-theme {
+    font-weight: 800;
+}
+
 
 footer {
     text-align: center;
@@ -89,4 +130,12 @@ h3 {
 
 a {
     color: turquoise;
+}
+
+button {
+    font-family: 'Chivo', sans-serif !important;
+}
+
+h1 {
+    font-weight: 400;
 }
