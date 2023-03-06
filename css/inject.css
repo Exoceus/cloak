@@ -231,12 +231,13 @@ input.gb_if {
 /* Home Top Level Strip Text + Icon */
 .UG2wL,
 .zpRRx {
-    color: var(--primary) !important
+    color: var(--primary) !important;
 }
 
 /* The are you going attentd */
 .DrZ8nd.KKjvXb {
-    background: var(--primary) !important
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
 }
 
 /* Day/Week Toggle on Create Event fullscreen view */

@@ -80,6 +80,8 @@ function updateAccent(root) {
     root.style.setProperty('--gm-fillbutton-container-color', accentColor);
     root.style.setProperty('--gm-hairlinebutton-ink-color', accentColor);
 
+    root.style.setProperty('--secondary-variant', `rgba(${r},${g},${b},${0.1})`);
+
     root.style.setProperty('--fab-hover', accentColor);
     root.style.setProperty('--primary-variant', accentColor);
     root.style.setProperty('--on-secondary', accentColor);
