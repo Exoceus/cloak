@@ -28,8 +28,8 @@ body.geSgge .KSxb4d.N4XV7d.RKLVef:hover {
 }
 
 /* Search Bar */
-.gb_Xe {
-    background: var(--surface) !important;
+.gb_Ze {
+    background: rgba(var(--on-surface-raw), 0.1) !important;
     color: var(--on-surface) !important;
 }
 
