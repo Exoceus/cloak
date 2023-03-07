@@ -260,3 +260,13 @@ input.gb_if {
 .gb_jf::placeholder {
     color: var(--on-surface) !important;
 }
+
+/* Settings links */
+.oj6B2e a {
+    color: var(--primary) !important;
+}
+
+/* Hover over date in month view */
+.yzYBvd:hover {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
