@@ -281,3 +281,8 @@ input.gb_if {
     border-color: var(--primary) !important;
     background: var(--primary) !important;
 }
+
+/* Settings text link */
+.oj6B2e a {
+    color: var(--primary) !important;
+}
