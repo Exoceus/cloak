@@ -261,6 +261,7 @@ function IndexPopup() {
             color={linColor}
           /> : null}
         </div></>}
+      <footer>Report Issues/Contribute: <a href="https://github.com/Exoceus/cloak/" target="_blank">Cloak Github</a></footer>
       <footer>Made by: <a href="https://jatinrmehta.com/" target="_blank">Jatin</a></footer>
     </main>
   )
