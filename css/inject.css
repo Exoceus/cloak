@@ -286,3 +286,8 @@ input.gb_if {
 .oj6B2e a {
     color: var(--primary) !important;
 }
+
+/* Hover over month view dates */
+.yzYBvd:hover {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
