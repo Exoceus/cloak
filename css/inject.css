@@ -275,3 +275,9 @@ input.gb_if {
 .rxb0oe .VfPpkd-qNpTzb-P4pF8c-SmKAyb {
     border-color: var(--primary) !important;
 }
+
+/* Google Top Right Profile Button */
+.gb_za {
+    border-color: var(--primary) !important;
+    background: var(--primary) !important;
+}
