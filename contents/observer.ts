@@ -103,11 +103,15 @@ function processNode(node) {
 
     const exclusions = ["jPtXgd"] // for profile images that are just a div with background-image property
 
-    if (targets.includes(node.className) || rgba2hex(bgColor) == "#ffffff" || rgba2hex(bgColor) == "#eeeeee" || rgba2hex(bgColor) == "#e8eaed" || rgba2hex(bgColor) == "#fcfdfe") {
+    if (targets.includes(node.className) || rgba2hex(bgColor) == "#ffffff" || rgba2hex(bgColor) == "#eeeeee" || rgba2hex(bgColor) == "#e8eaed" || rgba2hex(bgColor) == "#fcfdfe" || rgba2hex(bgColor) == "#f1f3f4") {
         // console.warn(bgColor)
         if (!exclusions.includes(node.className)) {
             node.style.setProperty('background', 'var(--surface)', 'important')
         }
+    }
+
+    if (node.tagName == "INPUT" && node.type == "text") {
+        node.style.setProperty('background', 'var(--surface)', 'important')
     }
 }
 

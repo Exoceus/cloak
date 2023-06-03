@@ -291,3 +291,23 @@ input.gb_if {
 .yzYBvd:hover {
     background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
+
+/* More Actions Button */
+.INBYpd {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
+
+/* Add location input */
+.xlHPle {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--on-surface) !important;
+}
+
+/* Search bar text when typing */
+.gb_ye {
+    color: var(--on-surface) !important;
+}
