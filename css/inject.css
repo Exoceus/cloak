@@ -315,3 +315,8 @@ input.gb_if {
 .cnTo8e.FYQzvb::before {
     background-color: var(--surface) !important;
 }
+
+.cnTo8e.FYQzvb.Z3ReZe {
+    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+    border-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
