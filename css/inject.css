@@ -27,9 +27,8 @@ body.geSgge .KSxb4d.N4XV7d.RKLVef:hover {
     background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
-/* Search Bar */
+/* Header area (search bar area if you click search) */
 .gb_Ze {
-    background: rgba(var(--on-surface-raw), 0.1) !important;
     color: var(--on-surface) !important;
 }
 
@@ -319,4 +318,8 @@ input.gb_if {
 .cnTo8e.FYQzvb.Z3ReZe {
     background-color: rgba(var(--on-surface-raw), 0.1) !important;
     border-color: rgba(var(--on-surface-raw), 0.1) !important;
+}
+
+.gb_1d .gb_Oe {
+    background: rgba(var(--on-surface-raw), 0.1) !important;
 }

@@ -111,7 +111,8 @@ function processNode(node) {
     }
 
     if (node.tagName == "INPUT" && node.type == "text") {
-        node.style.setProperty('background', 'var(--surface)', 'important')
+        node.style.setProperty('background', 'var(--surface)', 'important');
+        node.style.setProperty('color', 'var(--on-surface)', 'important');
     }
 }
 
