@@ -17,10 +17,20 @@ var document_observer = new MutationObserver(function (mutations) {
         is_head_added = true;
     }
     if (document.body) {
-        initialize();
-        document.body.style.setProperty('background', 'var(--surface)', 'important');
-        document.body.style.setProperty('color', 'var(--on-surface)', 'important');
-        document_observer.disconnect();
+        // first fetch colors then intialize
+        chrome.storage.local.get(null, (res) => {
+            colors.backgroundColor = res.backgroundColor;
+            colors.textColor = res.textColor;
+            colors.accentColor = res.accentColor;
+            colors.lineColor = res.lineColor;
+
+            // color fetch complete, intialize using these colors
+            initialize();
+
+            document.body.style.setProperty('background', 'var(--surface)', 'important');
+            document.body.style.setProperty('color', 'var(--on-surface)', 'important');
+            document_observer.disconnect();
+        })
     }
 });
 
@@ -116,12 +126,6 @@ function processNode(node) {
     }
 }
 
-chrome.storage.local.get(null, (res) => {
-    colors.backgroundColor = res.backgroundColor
-    colors.textColor = res.textColor
-    colors.accentColor = res.accentColor
-    colors.lineColor = res.lineColor
-})
 
 document_body_observer.observe(document, {
     childList: true,
