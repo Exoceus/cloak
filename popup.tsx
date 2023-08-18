@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react"
-import { SketchPicker } from "react-color";
 import { sendToContentScript } from "@plasmohq/messaging";
-import { ChevronLeft, ChevronDown, AlertCircle } from "react-feather"
-import "~css/popup.css"
+import { useEffect, useState } from "react";
+import { SketchPicker } from "react-color";
+import { ChevronDown, ChevronLeft } from "react-feather";
+import "~css/popup.css";
+
+import logo from "./assets/logo.png";
 
 const themes = ["dark", "ocean_wave", "rose_gold", "custom"]
 
@@ -14,7 +16,6 @@ function IndexPopup() {
   const [accColor, setAccentColor] = useState({ r: null, g: null, b: null, a: null });
   const [expandedItems, setExpandedItems] = useState([])
   const [currentTheme, setTheme] = useState(null)
-  const [isCalendar, setCalendar] = useState(false)
 
   const fetchStorage = () => {
     return new Promise<void>((resolve, reject) => {
@@ -31,26 +32,9 @@ function IndexPopup() {
 
   useEffect(() => {
     fetchStorage().then(() => setLoading(false))
-    // sendToContentScript({ name: "fetchUrl", }).then(res => {
-    //   console.log("RES", res)
-    // })
-    let queryOptions = { active: true, lastFocusedWindow: true };
-    // `tab` will either be a `tabs.Tab` instance or `undefined`.
-    chrome.tabs.query(queryOptions).then(res => {
-      console.warn("RES", res)
-      if (res.length > 0) {
-        let tab = res[0]
-        if (tab.url.startsWith('https://calendar.google.com/calendar')) {
-          setCalendar(true)
-        }
-      }
-    })
   }, [])
 
   useEffect(() => {
-    console.log(bgColor)
-
-
     sendToContentScript({
       name: "colorChange",
       body: {
@@ -61,7 +45,6 @@ function IndexPopup() {
   }, [bgColor])
 
   useEffect(() => {
-    console.log(linColor)
     sendToContentScript({
       name: "colorChange",
       body: {
@@ -72,7 +55,6 @@ function IndexPopup() {
   }, [linColor])
 
   useEffect(() => {
-    console.log(accColor)
     sendToContentScript({
       name: "colorChange",
       body: {
@@ -84,7 +66,6 @@ function IndexPopup() {
 
 
   useEffect(() => {
-    console.log(txtColor)
     sendToContentScript({
       name: "colorChange",
       body: {
@@ -199,21 +180,14 @@ function IndexPopup() {
   if (isLoading) {
     return (
       <div>
-        <img src='https://i.ibb.co/VB2g1Qm/cloak-logo-2.png' />
+        <img src={logo} />
       </div>
     )
   }
 
   return (
     <main>
-      <img src='https://i.ibb.co/VB2g1Qm/cloak-logo-2.png' className="header-logo" />
-
-
-      {!isCalendar && <div className="calendar-warning"><AlertCircle /> <div>Visit <span onClick={e => chrome.tabs.create({
-        url: "https://calendar.google.com/",
-        selected: true,
-      })}>Google Calendar</span> to see changes.</div>
-      </div>}
+      <img src={logo} className="header-logo" />
       <h1>Themes</h1>
       <div className="theme-wrapper">
         {
