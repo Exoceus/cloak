@@ -1,162 +1,159 @@
-@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,400;0,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,400;0,600;1,700&display=swap");
 
 html {
-    max-height: 200px;
-    overflow-y: scroll;
+  max-height: 200px;
+  overflow-y: scroll;
 }
 
 :root {
-    --dark_bg: white;
-    --dark_text: black;
-    --custom_bg: white;
-    --custom_text: black;
+  --dark_bg: white;
+  --dark_text: black;
+  --custom_bg: white;
+  --custom_text: black;
 }
 
 body {
-    margin: 0;
-    background-color: black;
-    color: white;
-    max-height: 400px;
-    overflow-y: scroll;
-    min-width: 310px;
-    font-family: 'Chivo', sans-serif !important;
+  margin: 0;
+  background-color: black;
+  color: white;
+  max-height: 400px;
+  overflow-y: scroll;
+  min-width: 310px;
+  font-family: "Chivo", sans-serif !important;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
 }
 
 body::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .header-logo {
-    max-width: 80%;
-    margin: 0 auto 1rem auto;
+  max-width: 80%;
+  margin: 0 auto 1rem auto;
 }
 
 .theme-wrapper {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
 }
 
-.theme-wrapper>button {
-    background-color: transparent;
-    color: white;
-    font-size: 1rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    outline: none;
-    border: 1px solid white;
-    cursor: pointer;
-    text-transform: capitalize;
-    font-weight: lighter;
+.theme-wrapper > button {
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: 1px solid white;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-weight: lighter;
 }
 
-.theme-wrapper>button:hover {
-    background-color: white;
-    color: black;
+.theme-wrapper > button:hover {
+  background-color: white;
+  color: black;
 }
 
 button.ocean_wave:hover,
 .ocean_wave.selected-theme {
-    background-color: rgb(27, 52, 92);
-    color: rgb(68, 163, 179);
-    border-color: rgb(27, 52, 92);
+  background-color: rgb(27, 52, 92);
+  color: rgb(68, 163, 179);
+  border-color: rgb(27, 52, 92);
 }
 
 button.rose_gold:hover,
 .rose_gold.selected-theme {
-    background-color: rgb(206, 133, 146);
-    color: rgb(152, 46, 77);
-    border-color: rgb(206, 133, 146);
+  background-color: rgb(206, 133, 146);
+  color: rgb(152, 46, 77);
+  border-color: rgb(206, 133, 146);
 }
 
 button.dark:hover,
 .dark.selected-theme {
-    background-color: var(--dark_bg);
-    color: var(--dark_text);
-    border-color: var(--dark_bg);
+  background-color: var(--dark_bg);
+  color: var(--dark_text);
+  border-color: var(--dark_bg);
 }
-
 
 button.custom:hover,
 .custom.selected-theme {
-    background-color: var(--custom_bg);
-    color: var(--custom_text);
-    border-color: var(--custom_bg);
+  background-color: var(--custom_bg);
+  color: var(--custom_text);
+  border-color: var(--custom_bg);
 }
-
 
 button.selected-theme {
-    font-weight: 800;
+  font-weight: 800;
 }
 
-
 footer {
-    text-align: center;
-    margin: 1rem 0 0 0;
-    font-size: 1rem;
+  text-align: center;
+  margin: 1rem 0 0 0;
+  font-size: 1rem;
 }
 
 .picker-wrapper {
-    border: 1px solid white;
-    padding: 0.75rem;
-    margin-top: 1rem;
-    border-radius: 0.5rem;
+  border: 1px solid white;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
 }
 
 h3 {
-    margin: 0 0 1rem 0;
-    font-size: 1rem;
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
 }
 
 .picker-toggle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .sketch-picker {
-    margin-top: 0.75rem;
-    background: rgba(255, 255, 255, 0.5) !important;
+  margin-top: 0.75rem;
+  background: rgba(255, 255, 255, 0.5) !important;
 }
 
 a {
-    color: turquoise;
+  color: turquoise;
 }
 
 button {
-    font-family: 'Chivo', sans-serif !important;
+  font-family: "Chivo", sans-serif !important;
 }
 
 h1 {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .calendar-warning {
-    display: grid;
-    flex-wrap: wrap;
-    background: rgba(237, 215, 14, 0.2);
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    grid-template-columns: auto 1fr;
-    justify-content: center;
-    column-gap: 0.5rem;
-    margin-top: 0.5rem;
-    color: rgb(237, 215, 14);
-    align-items: center;
-    line-height: 150%;
+  display: grid;
+  flex-wrap: wrap;
+  background: rgba(237, 215, 14, 0.2);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  grid-template-columns: auto 1fr;
+  justify-content: center;
+  column-gap: 0.5rem;
+  margin-top: 0.5rem;
+  color: rgb(237, 215, 14);
+  align-items: center;
+  line-height: 150%;
 }
 
-.calendar-warning>div>span {
-    font-weight: 800;
-    text-decoration: underline;
-    cursor: pointer;
+.calendar-warning > div > span {
+  font-weight: 800;
+  text-decoration: underline;
+  cursor: pointer;
 }

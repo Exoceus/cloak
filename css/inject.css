@@ -1,16 +1,16 @@
 body {
-    background: var(--surface) !important;
-    color: var(--on-surface) !important;
+  background: var(--surface) !important;
+  color: var(--on-surface) !important;
 }
 
 /* For Calendar Quick Options Menu */
 .z80M1.FwR7Pc {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 /* For hovering over dates in top left mini month view */
 .W0m3G:hover .r4nke {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 /* For hovering over dates in main view */
@@ -18,308 +18,308 @@ body {
 body.geSgge .KSxb4d.RKLVef:hover,
 .KSxb4d.N4XV7d.RKLVef:hover,
 body.geSgge .KSxb4d.N4XV7d.RKLVef:hover {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 /* Help Button */
 .Ewn2Sd.kNRrie:hover,
 .Ewn2Sd.kNRrie {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 /* Header area (search bar area if you click search) */
 .gb_Ze {
-    color: var(--on-surface) !important;
+  color: var(--on-surface) !important;
 }
 
 /* search bar search field */
 input.gb_if {
-    color: var(--on-surface) !important;
+  color: var(--on-surface) !important;
 }
 
 /* Shortcut menu search */
 .WmnPA:not(.VfPpkd-fmcmS-yrriRe-OWXEXe-OWB6Me) {
-    background-color: var(--surface);
+  background-color: var(--surface);
 }
 
 /* Search Results */
 .gssb_a .gsfs .ASO_SUGGESTION_CELL {
-    color: var(--on-surface) !important;
+  color: var(--on-surface) !important;
 }
 
 .ASO_SUGGESTIONS_CONTAINER {
-    color: var(--on-surface) !important;
+  color: var(--on-surface) !important;
 }
 
 .ASO_SUGGESTION_HIGHLIGHTED {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 /* yearly view hover date */
 .ebs3Ne:hover {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 /* Settings side nav hover */
 .nBzcnc.Wm6kRe.huVZvb:hover,
 .GrxScd .SWigMc.Wm6kRe.huVZvb:focus,
 .nBzcnc.gk6SMd.huVZvb {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 .cAYGed.KKjvXb .Ioup7e,
 .cAYGed.KKjvXb .BMQm1d {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 .DaQ2rc.KKjvXb .Oxnkef,
 .cAYGed.KKjvXb .Ioup7e {
-    color: var(--primary) !important;
+  color: var(--primary) !important;
 }
 
 /* Search for people */
 .OFaVze {
-    background-color: var(--surface) !important;
+  background-color: var(--surface) !important;
 }
 
 /* Line border on settings navigation */
 .DaQ2rc.KKjvXb .Oxnkef {
-    border-color: var(--primary) !important;
+  border-color: var(--primary) !important;
 }
 
 /* Calendar "Today" button */
 .VfPpkd-LgbsSe .VfPpkd-vQzf8d {
-    color: var(--on-surface) !important;
+  color: var(--on-surface) !important;
 }
 
 /* Lines under text fields search when active */
 .OabDMe {
-    background-color: var(--primary) !important;
+  background-color: var(--primary) !important;
 }
 
 /* Borders under headings for create even page */
 .rvBHac .VfPpkd-AznF2e-wEcVzc-OWXEXe-NowJzb {
-    border-color: var(--primary) !important;
+  border-color: var(--primary) !important;
 }
 
 /* Event Details */
 .WbUJNb.VfPpkd-AznF2e-OWXEXe-auswjd .VfPpkd-jY41G-V67aGc {
-    color: var(--primary) !important;
+  color: var(--primary) !important;
 }
 
 /* Formating Icons for Description */
 .qmMNRc {
-    color: var(--on-surface) !important;
+  color: var(--on-surface) !important;
 }
 
 /* Icon Selected */
 .Erb9le:not(.RDPZE) .qmMNRc.y7OZL {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 /* Icon hover in popup */
 .T4SBCf .r7kft .CIy9F:not(.Hcv3ye) .Aworge:hover {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 /* Edit Link Popup Text input */
 .xSJpA.IYewr {
-    background-color: var(--surface) !important;
+  background-color: var(--surface) !important;
 }
 
 /* Bottom Border line for some other input */
 .iMnlEf {
-    background-color: var(--primary) !important;
+  background-color: var(--primary) !important;
 }
 
 /* Three dots for opening calendar options */
 .N3p0af.TJ2tCc.u3bW4e,
 .N3p0af.TJ2tCc:hover {
-    color: var(--on-surface) !important;
+  color: var(--on-surface) !important;
 }
 
 /* Picking a Calendar (Hover effect) */
 .ncFHed .MocG8c.KKjvXb {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 /* Hovering over locations */
-.oKubKe[aria-selected=true] {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+.oKubKe[aria-selected="true"] {
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 /* Hovering over time/duration of event */
-.VKy0Ic[aria-selected=true] {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+.VKy0Ic[aria-selected="true"] {
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 /* unhighlighted text fields */
 .nZC2Ae,
 .iSSROb {
-    color: rgba(var(--on-surface-raw), 0.75) !important;
+  color: rgba(var(--on-surface-raw), 0.75) !important;
 }
 
 /* Bottom border line for description input */
 .PfAg4 {
-    background-color: var(--primary) !important;
+  background-color: var(--primary) !important;
 }
 
 /* Date Time Input Background on Focus */
 .u3bW4e {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 /* Discard Button text */
 .l3F1ye,
 .l3F1ye .TpQm9d {
-    color: var(--primary) !important;
+  color: var(--primary) !important;
 }
 
 /* Timezone selector */
 .hqBSCb:not(.VfPpkd-O1htCb-OWXEXe-OWB6Me) .VfPpkd-TkwUic {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 /* Selected Timezone Option */
 .s8kOBc .VfPpkd-rymPhb-ibnC6b.VfPpkd-rymPhb-ibnC6b-OWXEXe-gk6SMd {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 /* Page Headers */
-.NkK3Fc span[role=heading] {
-    color: var(--on-surface) !important;
+.NkK3Fc span[role="heading"] {
+  color: var(--on-surface) !important;
 }
 
 /* Create button arrow */
 .b0mxw {
-    color: var(--on-surface) !important;
+  color: var(--on-surface) !important;
 }
 
 /* Top Bar arrows */
 .JJyfjc {
-    color: var(--on-surface) !important;
+  color: var(--on-surface) !important;
 }
 
 /* settings down arrow */
 .e2CuFe.eU809d {
-    border-color: var(--on-surface) transparent;
+  border-color: var(--on-surface) transparent;
 }
 
 /* Settings checkboxes */
-.HLAc8>div>div>.VfPpkd-muHVFf-bMcfAe:enabled:checked~.VfPpkd-YQoJzd {
-    border-color: var(--primary) !important;
-    background-color: var(--primary) !important;
+.HLAc8 > div > div > .VfPpkd-muHVFf-bMcfAe:enabled:checked ~ .VfPpkd-YQoJzd {
+  border-color: var(--primary) !important;
+  background-color: var(--primary) !important;
 }
 
 /* Better notifications popup */
 .t6NDEb {
-    background: var(--surface) !important;
+  background: var(--surface) !important;
 }
 
 /* Join with Google Meet */
 .w1OTme {
-    background: var(--primary) !important;
+  background: var(--primary) !important;
 }
 
 /* Join by phone */
 
 .goktNc {
-    color: var(--primary) !important;
+  color: var(--primary) !important;
 }
 
 /* Home Top Level Strip Text + Icon */
 .UG2wL,
 .zpRRx {
-    color: var(--primary) !important;
+  color: var(--primary) !important;
 }
 
 /* The are you going attentd */
 .DrZ8nd.KKjvXb {
-    background: var(--primary) !important;
-    border-color: var(--primary) !important;
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
 }
 
 /* Day/Week Toggle on Create Event fullscreen view */
-.BIsmBd[aria-checked=true] .r8fcBf {
-    background: var(--primary) !important;
-    color: var(--on-surface) !important;
+.BIsmBd[aria-checked="true"] .r8fcBf {
+  background: var(--primary) !important;
+  color: var(--on-surface) !important;
 }
 
 .BIsmBd .r8fcBf {
-    border-color: var(--primary) !important;
+  border-color: var(--primary) !important;
 }
 
 /* Month miniview arrows */
 .HHHDef {
-    color: var(--on-surface) !important;
+  color: var(--on-surface) !important;
 }
 
 /* Search bar text */
 .gb_jf,
 .gb_jf::placeholder {
-    color: var(--on-surface) !important;
+  color: var(--on-surface) !important;
 }
 
 /* Settings links */
 .oj6B2e a {
-    color: var(--primary) !important;
+  color: var(--primary) !important;
 }
 
 /* Hover over date in month view */
 .yzYBvd:hover {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 /* Top loading line */
 .rxb0oe .VfPpkd-qNpTzb-P4pF8c-SmKAyb {
-    border-color: var(--primary) !important;
+  border-color: var(--primary) !important;
 }
 
 /* Google Top Right Profile Button */
 .gb_za {
-    border-color: var(--primary) !important;
-    background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  background: var(--primary) !important;
 }
 
 /* Settings text link */
 .oj6B2e a {
-    color: var(--primary) !important;
+  color: var(--primary) !important;
 }
 
 /* Hover over month view dates */
 .yzYBvd:hover {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 /* More Actions Button */
 .INBYpd {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 /* Add location input */
 .xlHPle {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 ::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: var(--on-surface) !important;
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--on-surface) !important;
 }
 
 /* Search bar text when typing */
 .gb_ye {
-    color: var(--on-surface) !important;
+  color: var(--on-surface) !important;
 }
 
 .cnTo8e.FYQzvb::before {
-    background-color: var(--surface) !important;
+  background-color: var(--surface) !important;
 }
 
 .cnTo8e.FYQzvb.Z3ReZe {
-    background-color: rgba(var(--on-surface-raw), 0.1) !important;
-    border-color: rgba(var(--on-surface-raw), 0.1) !important;
+  background-color: rgba(var(--on-surface-raw), 0.1) !important;
+  border-color: rgba(var(--on-surface-raw), 0.1) !important;
 }
 
 .gb_1d .gb_Oe {
-    background: rgba(var(--on-surface-raw), 0.1) !important;
+  background: rgba(var(--on-surface-raw), 0.1) !important;
 }

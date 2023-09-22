@@ -1,5 +1,1 @@
-
-export const backgroundLightColors = [
-    "hairline",
-
-]
+export const backgroundLightColors = ["hairline"];
