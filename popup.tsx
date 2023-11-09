@@ -1,39 +1,23 @@
 import { sendToContentScript } from "@plasmohq/messaging";
 import { useEffect, useState } from "react";
-import { SketchPicker } from "react-color";
-import { ChevronDown, ChevronLeft } from "react-feather";
 import "~css/popup.css";
 
+import ColorPicker from "~components/ColorPicker";
+import { EMPTY_THEME_COLOR, THEME_COLORS } from "~data/themes";
+import { COLOR_TOPIC, THEMES } from "~enums";
+import type { COLOR } from "~types";
 import logo from "./assets/logo.png";
 
 const themes = ["dark", "ocean_wave", "rose_gold", "custom"];
 
 function IndexPopup() {
   const [isLoading, setLoading] = useState(true);
-  const [bgColor, setBgColor] = useState({
-    r: null,
-    g: null,
-    b: null,
-    a: null,
-  });
-  const [txtColor, setTxtColor] = useState({
-    r: null,
-    g: null,
-    b: null,
-    a: null,
-  });
-  const [linColor, setLineColor] = useState({
-    r: null,
-    g: null,
-    b: null,
-    a: null,
-  });
-  const [accColor, setAccentColor] = useState({
-    r: null,
-    g: null,
-    b: null,
-    a: null,
-  });
+
+  const [bgColor, setBgColor] = useState(EMPTY_THEME_COLOR);
+  const [txtColor, setTxtColor] = useState(EMPTY_THEME_COLOR);
+  const [linColor, setLineColor] = useState(EMPTY_THEME_COLOR);
+  const [accColor, setAccentColor] = useState(EMPTY_THEME_COLOR);
+
   const [expandedItems, setExpandedItems] = useState([]);
   const [currentTheme, setTheme] = useState(null);
 
@@ -42,13 +26,14 @@ function IndexPopup() {
       chrome.storage.local.get(
         null,
         ({ backgroundColor, textColor, accentColor, lineColor, theme }) => {
-          setBgColor(backgroundColor);
-          setTxtColor(textColor);
-          setAccentColor(accentColor);
-          setLineColor(lineColor);
+          setColor(COLOR_TOPIC.BACKGROUND, backgroundColor);
+          setColor(COLOR_TOPIC.TEXT, textColor);
+          setColor(COLOR_TOPIC.ACCENT, accentColor);
+          setColor(COLOR_TOPIC.LINE, lineColor);
           setTheme(theme);
+
           resolve();
-        },
+        }
       );
     });
   };
@@ -57,47 +42,34 @@ function IndexPopup() {
     fetchStorage().then(() => setLoading(false));
   }, []);
 
-  useEffect(() => {
+  const setColor = (colorTopic: COLOR_TOPIC, color: COLOR) => {
+    let requestType = "";
+    if (colorTopic === COLOR_TOPIC.BACKGROUND) {
+      requestType = "backgroundColor";
+      setBgColor(color);
+    } else if (colorTopic === COLOR_TOPIC.ACCENT) {
+      requestType = "accentColor";
+      setAccentColor(color);
+    } else if (colorTopic === COLOR_TOPIC.LINE) {
+      requestType = "lineColor";
+      setLineColor(color);
+    } else if (colorTopic === COLOR_TOPIC.TEXT) {
+      requestType = "textColor";
+      setTxtColor(color);
+    } else {
+      throw `Unsupported color topic: ${colorTopic}`;
+    }
+
     sendToContentScript({
       name: "colorChange",
       body: {
-        type: "backgroundColor",
-        color: bgColor,
+        type: requestType,
+        color,
       },
     });
-  }, [bgColor]);
+  };
 
-  useEffect(() => {
-    sendToContentScript({
-      name: "colorChange",
-      body: {
-        type: "lineColor",
-        color: linColor,
-      },
-    });
-  }, [linColor]);
-
-  useEffect(() => {
-    sendToContentScript({
-      name: "colorChange",
-      body: {
-        type: "accentColor",
-        color: accColor,
-      },
-    });
-  }, [accColor]);
-
-  useEffect(() => {
-    sendToContentScript({
-      name: "colorChange",
-      body: {
-        type: "textColor",
-        color: txtColor,
-      },
-    });
-  }, [txtColor]);
-
-  const isExpanded = (section: string) => {
+  const checkExpanded = (section: string) => {
     return expandedItems.includes(section);
   };
 
@@ -117,81 +89,26 @@ function IndexPopup() {
           theme,
         },
       });
-      if (theme == "dark") {
-        setBgColor({
-          a: 1,
-          b: 17,
-          g: 9,
-          r: 11,
-        });
-        setLineColor({
-          a: 1,
-          b: 53,
-          g: 48,
-          r: 48,
-        });
-        setTxtColor({
-          a: 0.7,
-          b: 255,
-          g: 255,
-          r: 255,
-        });
-        setAccentColor({
-          a: 1,
-          b: 239,
-          g: 153,
-          r: 85,
-        });
-      } else if (theme == "rose_gold") {
-        setBgColor({
-          a: 1,
-          b: 146,
-          g: 133,
-          r: 206,
-        });
-        setLineColor({
-          a: 1,
-          b: 165,
-          g: 164,
-          r: 217,
-        });
-        setTxtColor({
-          a: 0.7,
-          b: 230,
-          g: 237,
-          r: 242,
-        });
-        setAccentColor({
-          a: 1,
-          b: 77,
-          g: 46,
-          r: 152,
-        });
-      } else if (theme == "ocean_wave") {
-        setBgColor({
-          a: 1,
-          b: 92,
-          g: 52,
-          r: 27,
-        });
-        setLineColor({
-          a: 1,
-          b: 127,
-          g: 96,
-          r: 79,
-        });
-        setTxtColor({
-          a: 0.7,
-          b: 218,
-          g: 233,
-          r: 238,
-        });
-        setAccentColor({
-          a: 1,
-          b: 179,
-          g: 163,
-          r: 68,
-        });
+      if (theme == THEMES.DARK) {
+        const { background, line, text, accent } = THEME_COLORS[THEMES.DARK];
+        setColor(COLOR_TOPIC.BACKGROUND, background);
+        setColor(COLOR_TOPIC.TEXT, text);
+        setColor(COLOR_TOPIC.ACCENT, accent);
+        setColor(COLOR_TOPIC.LINE, line);
+      } else if (theme == THEMES.ROSE_GOLD) {
+        const { background, line, text, accent } =
+          THEME_COLORS[THEMES.ROSE_GOLD];
+        setColor(COLOR_TOPIC.BACKGROUND, background);
+        setColor(COLOR_TOPIC.TEXT, text);
+        setColor(COLOR_TOPIC.ACCENT, accent);
+        setColor(COLOR_TOPIC.LINE, line);
+      } else if (theme == THEMES.OCEAN_WAVE) {
+        const { background, line, text, accent } =
+          THEME_COLORS[THEMES.OCEAN_WAVE];
+        setColor(COLOR_TOPIC.BACKGROUND, background);
+        setColor(COLOR_TOPIC.TEXT, text);
+        setColor(COLOR_TOPIC.ACCENT, accent);
+        setColor(COLOR_TOPIC.LINE, line);
       }
       setTheme(theme);
     }
@@ -210,8 +127,9 @@ function IndexPopup() {
       <img src={logo} className="header-logo" />
       <h1>Themes</h1>
       <div className="theme-wrapper">
-        {themes.map((theme) => (
+        {themes.map((theme, index) => (
           <button
+            key={index}
             onClick={() => selectTheme(theme)}
             className={
               (currentTheme == theme ? "selected-theme" : "") + " " + theme
@@ -226,70 +144,39 @@ function IndexPopup() {
         <h1>Customizations</h1>
       )}
       {(currentTheme == "custom" || currentTheme == "dark") && (
-        <div className="picker-wrapper">
-          <div onClick={() => modifyExpand("accent")} className="picker-toggle">
-            <div>Accent</div>
-            {isExpanded("accent") ? <ChevronDown /> : <ChevronLeft />}
-          </div>
-          {isExpanded("accent") ? (
-            <SketchPicker
-              onChange={(color) => {
-                setAccentColor(color.rgb);
-              }}
-              color={accColor}
-            />
-          ) : null}
-        </div>
+        <ColorPicker
+          type={COLOR_TOPIC.ACCENT}
+          isExpanded={checkExpanded(COLOR_TOPIC.ACCENT)}
+          color={accColor}
+          setColor={setColor}
+          modifyExpand={modifyExpand}
+        />
       )}
       {currentTheme == "custom" && (
         <>
-          <div className="picker-wrapper">
-            <div
-              onClick={() => modifyExpand("background")}
-              className="picker-toggle"
-            >
-              <div>Background</div>
-              {isExpanded("background") ? <ChevronDown /> : <ChevronLeft />}
-            </div>
-            {isExpanded("background") ? (
-              <SketchPicker
-                onChange={(color) => {
-                  setBgColor(color.rgb);
-                }}
-                color={bgColor}
-              />
-            ) : null}
-          </div>
+          <ColorPicker
+            type={COLOR_TOPIC.BACKGROUND}
+            isExpanded={checkExpanded(COLOR_TOPIC.BACKGROUND)}
+            color={bgColor}
+            setColor={setColor}
+            modifyExpand={modifyExpand}
+          />
 
-          <div className="picker-wrapper">
-            <div onClick={() => modifyExpand("text")} className="picker-toggle">
-              <div>Text</div>
-              {isExpanded("text") ? <ChevronDown /> : <ChevronLeft />}
-            </div>
-            {isExpanded("text") ? (
-              <SketchPicker
-                onChange={(color) => {
-                  setTxtColor(color.rgb);
-                }}
-                color={txtColor}
-              />
-            ) : null}
-          </div>
+          <ColorPicker
+            type={COLOR_TOPIC.TEXT}
+            isExpanded={checkExpanded(COLOR_TOPIC.TEXT)}
+            color={txtColor}
+            setColor={setColor}
+            modifyExpand={modifyExpand}
+          />
 
-          <div className="picker-wrapper">
-            <div onClick={() => modifyExpand("line")} className="picker-toggle">
-              <div>Line</div>
-              {isExpanded("line") ? <ChevronDown /> : <ChevronLeft />}
-            </div>
-            {isExpanded("line") ? (
-              <SketchPicker
-                onChange={(color) => {
-                  setLineColor(color.rgb);
-                }}
-                color={linColor}
-              />
-            ) : null}
-          </div>
+          <ColorPicker
+            type={COLOR_TOPIC.LINE}
+            isExpanded={checkExpanded(COLOR_TOPIC.LINE)}
+            color={linColor}
+            setColor={setColor}
+            modifyExpand={modifyExpand}
+          />
         </>
       )}
       <footer>

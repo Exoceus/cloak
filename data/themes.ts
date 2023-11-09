@@ -1,26 +1,26 @@
-import { THEMES } from "~types";
+import { COLOR_TOPIC, THEMES } from "~enums";
 
 export const THEME_COLORS = {
   [THEMES.DARK]: {
-    background: {
+    [COLOR_TOPIC.BACKGROUND]: {
       a: 1,
       b: 17,
       g: 9,
       r: 11,
     },
-    line: {
+    [COLOR_TOPIC.LINE]: {
       a: 1,
       b: 53,
       g: 48,
       r: 48,
     },
-    text: {
+    [COLOR_TOPIC.TEXT]: {
       a: 0.7,
       b: 255,
       g: 255,
       r: 255,
     },
-    accent: {
+    [COLOR_TOPIC.ACCENT]: {
       a: 1,
       b: 239,
       g: 153,
@@ -28,25 +28,25 @@ export const THEME_COLORS = {
     },
   },
   [THEMES.ROSE_GOLD]: {
-    background: {
+    [COLOR_TOPIC.BACKGROUND]: {
       a: 1,
       b: 146,
       g: 133,
       r: 206,
     },
-    line: {
+    [COLOR_TOPIC.LINE]: {
       a: 1,
       b: 165,
       g: 164,
       r: 217,
     },
-    text: {
+    [COLOR_TOPIC.TEXT]: {
       a: 0.7,
       b: 230,
       g: 237,
       r: 242,
     },
-    accent: {
+    [COLOR_TOPIC.ACCENT]: {
       a: 1,
       b: 77,
       g: 46,
@@ -54,25 +54,25 @@ export const THEME_COLORS = {
     },
   },
   [THEMES.OCEAN_WAVE]: {
-    background: {
+    [COLOR_TOPIC.BACKGROUND]: {
       a: 1,
       b: 92,
       g: 52,
       r: 27,
     },
-    line: {
+    [COLOR_TOPIC.LINE]: {
       a: 1,
       b: 127,
       g: 96,
       r: 79,
     },
-    text: {
+    [COLOR_TOPIC.TEXT]: {
       a: 0.7,
       b: 218,
       g: 233,
       r: 238,
     },
-    accent: {
+    [COLOR_TOPIC.ACCENT]: {
       a: 1,
       b: 179,
       g: 163,
@@ -81,7 +81,7 @@ export const THEME_COLORS = {
   },
 };
 
-export const EMPTY_THEME_COLORS = {
+export const EMPTY_THEME_COLOR = {
   r: null,
   g: null,
   b: null,
