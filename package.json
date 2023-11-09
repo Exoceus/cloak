@@ -6,7 +6,7 @@
   "author": "jatinm",
   "packageManager": "pnpm@7.18.2",
   "scripts": {
-    "dev": "plasmo dev",
+    "dev": "plasmo dev --verbose",
     "build": "plasmo build",
     "package": "plasmo package"
   },

@@ -4,11 +4,9 @@ import "~css/popup.css";
 
 import ColorPicker from "~components/ColorPicker";
 import { EMPTY_THEME_COLOR, THEME_COLORS } from "~data/themes";
-import { COLOR_TOPIC, THEMES } from "~enums";
+import { COLOR_TOPIC, THEME } from "~enums";
 import type { COLOR } from "~types";
 import logo from "./assets/logo.png";
-
-const themes = ["dark", "ocean_wave", "rose_gold", "custom"];
 
 function IndexPopup() {
   const [isLoading, setLoading] = useState(true);
@@ -81,7 +79,16 @@ function IndexPopup() {
     }
   };
 
-  const selectTheme = (theme: string) => {
+  const updateColorsToTheme = (theme: THEME) => {
+    const { background, line, text, accent } = THEME_COLORS[theme];
+    setColor(COLOR_TOPIC.BACKGROUND, background);
+    setColor(COLOR_TOPIC.TEXT, text);
+    setColor(COLOR_TOPIC.ACCENT, accent);
+    setColor(COLOR_TOPIC.LINE, line);
+  };
+
+  const selectTheme = (theme: THEME) => {
+    console.log(theme);
     if (theme != currentTheme) {
       sendToContentScript({
         name: "themeChange",
@@ -89,26 +96,8 @@ function IndexPopup() {
           theme,
         },
       });
-      if (theme == THEMES.DARK) {
-        const { background, line, text, accent } = THEME_COLORS[THEMES.DARK];
-        setColor(COLOR_TOPIC.BACKGROUND, background);
-        setColor(COLOR_TOPIC.TEXT, text);
-        setColor(COLOR_TOPIC.ACCENT, accent);
-        setColor(COLOR_TOPIC.LINE, line);
-      } else if (theme == THEMES.ROSE_GOLD) {
-        const { background, line, text, accent } =
-          THEME_COLORS[THEMES.ROSE_GOLD];
-        setColor(COLOR_TOPIC.BACKGROUND, background);
-        setColor(COLOR_TOPIC.TEXT, text);
-        setColor(COLOR_TOPIC.ACCENT, accent);
-        setColor(COLOR_TOPIC.LINE, line);
-      } else if (theme == THEMES.OCEAN_WAVE) {
-        const { background, line, text, accent } =
-          THEME_COLORS[THEMES.OCEAN_WAVE];
-        setColor(COLOR_TOPIC.BACKGROUND, background);
-        setColor(COLOR_TOPIC.TEXT, text);
-        setColor(COLOR_TOPIC.ACCENT, accent);
-        setColor(COLOR_TOPIC.LINE, line);
+      if (theme !== THEME.CUSTOM) {
+        updateColorsToTheme(theme);
       }
       setTheme(theme);
     }
@@ -127,7 +116,7 @@ function IndexPopup() {
       <img src={logo} className="header-logo" />
       <h1>Themes</h1>
       <div className="theme-wrapper">
-        {themes.map((theme, index) => (
+        {Object.values(THEME).map((theme, index) => (
           <button
             key={index}
             onClick={() => selectTheme(theme)}

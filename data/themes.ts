@@ -1,7 +1,7 @@
-import { COLOR_TOPIC, THEMES } from "~enums";
+import { COLOR_TOPIC, THEME } from "~enums";
 
 export const THEME_COLORS = {
-  [THEMES.DARK]: {
+  [THEME.DARK]: {
     [COLOR_TOPIC.BACKGROUND]: {
       a: 1,
       b: 17,
@@ -27,7 +27,7 @@ export const THEME_COLORS = {
       r: 85,
     },
   },
-  [THEMES.ROSE_GOLD]: {
+  [THEME.ROSE_GOLD]: {
     [COLOR_TOPIC.BACKGROUND]: {
       a: 1,
       b: 146,
@@ -53,7 +53,7 @@ export const THEME_COLORS = {
       r: 152,
     },
   },
-  [THEMES.OCEAN_WAVE]: {
+  [THEME.OCEAN_WAVE]: {
     [COLOR_TOPIC.BACKGROUND]: {
       a: 1,
       b: 92,

@@ -5,7 +5,7 @@ export enum COLOR_TOPIC {
   LINE = "line",
 }
 
-export enum THEMES {
+export enum THEME {
   DARK = "dark",
   OCEAN_WAVE = "ocean_wave",
   ROSE_GOLD = "rose_gold",

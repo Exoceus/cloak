@@ -1,5 +1,5 @@
 import { THEME_COLORS } from "~data/themes";
-import { THEMES } from "~enums";
+import { THEME } from "~enums";
 
 console.log("UP");
 
@@ -9,7 +9,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
     null,
     ({ backgroundColor, textColor, accentColor, lineColor, theme }) => {
       // default THEME is dark theme
-      const { background, text, line, accent } = THEME_COLORS[THEMES.DARK];
+      const { background, text, line, accent } = THEME_COLORS[THEME.DARK];
 
       if (!backgroundColor) {
         chrome.storage.local.set({ backgroundColor: background });
@@ -24,7 +24,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
         chrome.storage.local.set({ lineColor: line });
       }
       if (!theme) {
-        chrome.storage.local.set({ theme: THEMES.DARK });
+        chrome.storage.local.set({ theme: THEME.DARK });
       }
       if (
         !backgroundColor ||
