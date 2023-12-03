@@ -54,18 +54,22 @@ function updateText(root) {
   root.style.setProperty("--on-surface", textPrimaryColor);
   root.style.setProperty(
     "--mdc-theme-text-primary-on-background",
-    textPrimaryColor,
+    textPrimaryColor
+  );
+  root.style.setProperty(
+    "--mdc-filled-text-field-input-text-color",
+    textPrimaryColor
   );
   root.style.setProperty(
     "--mdc-checkbox-unselected-hover-icon-color",
-    textPrimaryColor,
+    textPrimaryColor
   );
 
   root.style.setProperty("--on-surface-variant-agm", textFadedColor);
   root.style.setProperty("--on-surface-variant", textFadedColor);
   root.style.setProperty(
     "--mdc-checkbox-unselected-icon-color",
-    textFadedColor,
+    textFadedColor
   );
 
   root.style.setProperty("--chip-hover", `rgba(${r},${g},${b},${0.1})`);
@@ -115,9 +119,9 @@ function updateCreateButton() {
   buttonWrapper.appendChild(createButton);
   createButton.style.width = "100%";
   document.querySelector<HTMLElement>(
-    "body > div.tEhMVd > div.pSp5K > div.KKOvEb > div > div.QQYuzf > div > div.LXjtcc > div > div",
+    "body > div.tEhMVd > div.pSp5K > div.KKOvEb > div > div.QQYuzf > div > div.LXjtcc > div > div"
   ).style.width = "90%";
   document.querySelector<HTMLElement>(
-    "body > div.tEhMVd > div.pSp5K > div.KKOvEb > div > div.QQYuzf > div > div.LXjtcc > div > div > div",
+    "body > div.tEhMVd > div.pSp5K > div.KKOvEb > div > div.QQYuzf > div > div.LXjtcc > div > div > div"
   ).style.width = "90%";
 }
