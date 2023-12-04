@@ -323,3 +323,34 @@ input.gb_if {
 .gb_1d .gb_Oe {
   background: rgba(var(--on-surface-raw), 0.1) !important;
 }
+
+/* Location dropdown secondary info */
+.VfPpkd-StrnGf-rymPhb-L8ivfd-fmcmS {
+  color: rgba(var(--on-surface-raw), 0.8) !important;
+}
+
+/* Select time box */
+.BoaG2d {
+  background-color: var(--on-surface) !important;
+  border-color: var(--on-surface) !important;
+}
+
+/* Custom Occurrence - num occurrences input */
+.wKVJm .KieOeb .VfPpkd-fmcmS-wGMbrd {
+  color: var(--on-surface) !important;
+}
+
+/* Custom Occurrence - day picker */
+.IuSHYd {
+  background-color: var(--surface);
+}
+
+/* Custom Occurrence - day picker hover */
+.IuSHYd:hover {
+  background-color: rgba(var(--on-surface-raw), 0.1);
+}
+
+/* Custom Occurrence - day picker selected */
+.IuSHYd.N2RpBe {
+  background-color: var(--primary) !important;
+}

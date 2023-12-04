@@ -29,12 +29,12 @@ var document_observer = new MutationObserver(function (mutations) {
       document.body.style.setProperty(
         "background",
         "var(--surface)",
-        "important",
+        "important"
       );
       document.body.style.setProperty(
         "color",
         "var(--on-surface)",
-        "important",
+        "important"
       );
       document_observer.disconnect();
     });
@@ -105,7 +105,7 @@ function processNode(node) {
           (i === 3 ? Math.round(parseFloat(n) * 255) : parseFloat(n))
             .toString(16)
             .padStart(2, "0")
-            .replace("NaN", ""),
+            .replace("NaN", "")
         )
         .join("")}`;
     } catch (e) {
@@ -124,6 +124,8 @@ function processNode(node) {
 
   let textColor = window.getComputedStyle(node).color;
 
+  // console.warn("GG", rgba2hex("rgb(95,99,104)"));
+
   // TODO: convert this to array check
   if (
     textColor === "rgb(95, 99, 104)" ||
@@ -133,7 +135,8 @@ function processNode(node) {
     textColor === "#3c4043" ||
     textColor === "#222" ||
     rgba2hex(textColor) == "#222222" ||
-    rgba2hex(textColor) == "#3c4043"
+    rgba2hex(textColor) == "#3c4043" ||
+    rgba2hex(textColor) == "#5f6368"
   ) {
     node.style.setProperty("color", "var(--on-surface)", "important");
   }
@@ -144,7 +147,7 @@ function processNode(node) {
   }
   let targets = ["XvhY1d", "z80M1 xl07Ob-ibnC6b FwR7Pc", "z80M1 QJXRJc"];
 
-  const exclusions = ["jPtXgd"]; // for profile images that are just a div with background-image property
+  const exclusions = ["jPtXgd", "IuSHYd"]; // for profile images that are just a div with background-image property
 
   if (
     targets.includes(node.className) ||
@@ -152,7 +155,8 @@ function processNode(node) {
     rgba2hex(bgColor) == "#eeeeee" ||
     rgba2hex(bgColor) == "#e8eaed" ||
     rgba2hex(bgColor) == "#fcfdfe" ||
-    rgba2hex(bgColor) == "#f1f3f4"
+    rgba2hex(bgColor) == "#f1f3f4" ||
+    rgba2hex(bgColor) == "#f8f9fa"
   ) {
     // console.warn(bgColor)
     if (!exclusions.includes(node.className)) {

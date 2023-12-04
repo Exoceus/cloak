@@ -1,3 +1,6 @@
+import { THEME_COLORS } from "~data/themes";
+import { THEME } from "~enums";
+
 console.log("UP");
 
 // set defaults
@@ -5,26 +8,23 @@ chrome.runtime.onInstalled.addListener(async (details) => {
   chrome.storage.local.get(
     null,
     ({ backgroundColor, textColor, accentColor, lineColor, theme }) => {
+      // default THEME is dark theme
+      const { background, text, line, accent } = THEME_COLORS[THEME.DARK];
+
       if (!backgroundColor) {
-        chrome.storage.local.set({
-          backgroundColor: { r: 11, g: 9, b: 17, a: 1 },
-        });
+        chrome.storage.local.set({ backgroundColor: background });
       }
       if (!textColor) {
-        chrome.storage.local.set({
-          textColor: { r: 255, g: 255, b: 255, a: 0.7 },
-        });
+        chrome.storage.local.set({ textColor: text });
       }
       if (!accentColor) {
-        chrome.storage.local.set({
-          accentColor: { r: 85, g: 153, b: 239, a: 1 },
-        });
+        chrome.storage.local.set({ accentColor: accent });
       }
       if (!lineColor) {
-        chrome.storage.local.set({ lineColor: { r: 48, g: 48, b: 53, a: 1 } });
+        chrome.storage.local.set({ lineColor: line });
       }
       if (!theme) {
-        chrome.storage.local.set({ theme: "dark" });
+        chrome.storage.local.set({ theme: THEME.DARK });
       }
       if (
         !backgroundColor ||
@@ -38,6 +38,6 @@ chrome.runtime.onInstalled.addListener(async (details) => {
           selected: true,
         });
       }
-    },
+    }
   );
 });
