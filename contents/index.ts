@@ -80,6 +80,7 @@ function updateLine(root) {
   const lineColor = `rgb(${r},${g},${b})`;
   root.style.setProperty("--line-color", lineColor);
   root.style.setProperty("--hairline", lineColor);
+  root.style.setProperty("--outline-variant", lineColor);
 }
 
 function updateAccent(root) {

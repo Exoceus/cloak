@@ -10,9 +10,9 @@ export const THEME_COLORS = {
     },
     [COLOR_TOPIC.LINE]: {
       a: 1,
-      b: 53,
-      g: 48,
-      r: 48,
+      b: 84,
+      g: 81,
+      r: 81,
     },
     [COLOR_TOPIC.TEXT]: {
       a: 0.7,
