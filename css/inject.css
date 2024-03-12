@@ -359,3 +359,18 @@ input.gb_if {
 .asor_a, .asor_x, .asor_e {
   color: var(--on-surface) !important;
 }
+
+/* Week days hover */
+.nSCxEf.RKLVef:hover, body.geSgge .nSCxEf.RKLVef:hover, .nSCxEf.N4XV7d.RKLVef:hover, body.geSgge .nSCxEf.N4XV7d.RKLVef:hover{
+  background-color: rgba(var(--on-surface-raw), 0.1);
+}
+
+/* Mini Month View hover */
+.IOneve:hover .r4nke{
+  background-color: rgba(var(--on-surface-raw), 0.1);
+}
+
+/* Main moth View hover */
+.w48V4c:hover{
+  background-color: rgba(var(--on-surface-raw), 0.1);
+}
