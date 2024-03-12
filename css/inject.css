@@ -354,3 +354,8 @@ input.gb_if {
 .IuSHYd.N2RpBe {
   background-color: var(--primary) !important;
 }
+
+/* Search bar results text */
+.asor_a, .asor_x, .asor_e {
+  color: var(--on-surface) !important;
+}
