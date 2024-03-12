@@ -73,6 +73,8 @@ function updateText(root) {
   );
 
   root.style.setProperty("--chip-hover", `rgba(${r},${g},${b},${0.1})`);
+
+  root.style.setProperty("--dimmed", `rgba(${r},${g},${b},${0.5})`);
 }
 
 function updateLine(root) {
