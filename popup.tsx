@@ -176,7 +176,7 @@ function IndexPopup() {
       </footer>
       <footer>
         Made by:{" "}
-        <a href="https://jatinrmehta.com/" target="_blank">
+        <a href="https://jatinm.com/" target="_blank">
           Jatin
         </a>
       </footer>

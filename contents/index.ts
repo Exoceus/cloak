@@ -73,6 +73,8 @@ function updateText(root) {
   );
 
   root.style.setProperty("--chip-hover", `rgba(${r},${g},${b},${0.1})`);
+
+  root.style.setProperty("--dimmed", `rgba(${r},${g},${b},${0.5})`);
 }
 
 function updateLine(root) {
@@ -80,6 +82,7 @@ function updateLine(root) {
   const lineColor = `rgb(${r},${g},${b})`;
   root.style.setProperty("--line-color", lineColor);
   root.style.setProperty("--hairline", lineColor);
+  root.style.setProperty("--outline-variant", lineColor);
 }
 
 function updateAccent(root) {

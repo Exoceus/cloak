@@ -1,6 +1,6 @@
 body {
   background: var(--surface) !important;
-  color: var(--on-surface) !important;
+  color: red;
 }
 
 /* For Calendar Quick Options Menu */
@@ -353,4 +353,30 @@ input.gb_if {
 /* Custom Occurrence - day picker selected */
 .IuSHYd.N2RpBe {
   background-color: var(--primary) !important;
+}
+
+/* Search bar results text */
+.asor_a, .asor_x, .asor_e {
+  color: var(--on-surface) !important;
+}
+
+/* Week days hover */
+.nSCxEf.RKLVef:hover, body.geSgge .nSCxEf.RKLVef:hover, .nSCxEf.N4XV7d.RKLVef:hover, body.geSgge .nSCxEf.N4XV7d.RKLVef:hover{
+  background-color: rgba(var(--on-surface-raw), 0.1);
+}
+
+/* Mini Month View hover */
+.IOneve:hover .r4nke{
+  background-color: rgba(var(--on-surface-raw), 0.1);
+}
+
+/* Main moth View hover */
+.w48V4c:hover{
+  background-color: rgba(var(--on-surface-raw), 0.1);
+}
+
+/* Weekly View Past Events Text */
+.lhydbb.EiZ8Dd.UflSff, .lhydbb.YkxAAf.UflSff{
+  color: black !important;
+  opacity: 0.5 !important;
 }
