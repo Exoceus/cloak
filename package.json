@@ -1,7 +1,7 @@
 {
   "name": "cloak",
   "displayName": "Cloak",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Dark mode for Google Calendar",
   "author": "jatinm",
   "packageManager": "pnpm@7.18.2",
