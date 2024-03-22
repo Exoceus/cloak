@@ -377,10 +377,10 @@ input.gb_if {
 
 /* Weekly View Past Events Text */
 .lhydbb.EiZ8Dd.UflSff, .lhydbb.YkxAAf.UflSff{
-  color: rgba(0, 0, 0, 0.5) !important;
+  color: rgba(0, 0, 0, 1) !important;
 }
 
 /* Weekly View Past Full Day Events */
-.KF4T6b, .UflSff{
+.KF4T6b{
   color: rgba(0, 0, 0, 0.5) !important;
 }
