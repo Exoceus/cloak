@@ -384,3 +384,28 @@ input.gb_if {
 .KF4T6b{
   color: rgba(0, 0, 0, 0.5) !important;
 }
+
+/* Monthly Miniview */
+.iGiNKd{
+  background: var(--surface) !important;
+}
+
+/* Monthly miniview dates */
+.IOneve .r4nke{
+  background-color: transparent !important  ;
+}
+
+/* Weird Shadow Lines in Week view */
+.hEtGGf::after, .oXZ1yb.T8M5bd .lqYlwe::before, .oXZ1yb.T8M5bd .uEzZIb::after {
+  display: none !important;
+}
+
+/* New Event Type button */
+.zmrbhe.qs41qe{
+  background-color: var(--primary) !important;
+}
+
+/* Time zone Focus*/
+.Az5uJd.RLj2u{
+  background-color: rgba(var(--on-surface-raw), 0.25) !important;
+}

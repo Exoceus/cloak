@@ -95,6 +95,7 @@ function updateAccent(root) {
   root.style.setProperty("--secondary", accentColor);
   root.style.setProperty("--gm-fillbutton-container-color", accentColor);
   root.style.setProperty("--gm-hairlinebutton-ink-color", accentColor);
+  root.style.setProperty("--mdc-ripple-color", accentColor);
 
   root.style.setProperty("--secondary-variant", `rgba(${r},${g},${b},${0.1})`);
 
