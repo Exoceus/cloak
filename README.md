@@ -1,6 +1,6 @@
 # Cloak
 
-> NOW ARCHIVED
+> ⚠️ NOW ARCHIVED ⚠️ 
 
 ## Theme Customizer for G-Cal
 
